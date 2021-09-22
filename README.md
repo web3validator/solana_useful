@@ -10,7 +10,7 @@ solana-install init 1.7.10
 ```
 
 ```bash
-solana-validator --ledger ~/solana/ledger wait-for-restart-window && systemctl restart solana && tail -f solana.log
+solana-validator --ledger ~/solana/ledger wait-for-restart-window && systemctl restart solana && tail -f ~/solana/solana.log
 ```
 
 ```bash
