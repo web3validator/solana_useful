@@ -3,10 +3,9 @@
 ```bash
 systemctl stop solana
 rm -rf ~/solana/ledger
-rm /etc/systemd/system/solana.service
+mv /etc/systemd/system/solana.service /etc/systemd/system/solana.service.bak
 nano /etc/systemd/system/solana.service
 ```
-
 
 #Copy and paste the following service text
 
