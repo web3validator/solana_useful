@@ -168,6 +168,10 @@ systemctl enable solana
 systemctl start solana
 ```
 ```bash
+ solana-validator --ledger /root/ledger wait-for-restart-window && systemctl restart solana
+```
+
+```bash
 tail -f /root/solana/solana.log
 ```
 ==========
@@ -233,5 +237,3 @@ ufw deny out from any to 198.18.0.0/15
 ufw deny out from any to 169.254.0.0/16
 ufw enable
 ```
-
- 
