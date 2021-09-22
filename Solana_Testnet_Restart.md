@@ -1,4 +1,4 @@
-#Stop and rm ledger and service
+#Stop and rm ledger, and backup service
 
 ```bash
 systemctl stop solana
