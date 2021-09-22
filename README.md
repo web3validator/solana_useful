@@ -12,6 +12,11 @@ solana-install init 1.7.10
 ```bash
 solana-validator --ledger ~/solana/ledger wait-for-restart-window && systemctl restart solana && tail -f ~/solana/solana.log
 ```
+Check catchup
+
+```bash
+solana catchup --our-localhost --follow --log
+```
 
 ```bash
 sudo bash -c "cat >/etc/sysctl.d/20-solana-udp-buffers.conf <<EOF
@@ -240,11 +245,20 @@ systemctl start solana
 ###########################
 ```bash
 ufw allow 22
+ufw allow 8000/tcp
+ufw allow 8899/tcp
+ufw allow 8900/tcp
+ufw allow 8000:8010/udp
+
 ufw deny out from any to 10.0.0.0/8
 ufw deny out from any to 172.16.0.0/12
 ufw deny out from any to 192.168.0.0/16
 ufw deny out from any to 100.64.0.0/10
 ufw deny out from any to 198.18.0.0/15
 ufw deny out from any to 169.254.0.0/16
+
 ufw enable
+```
+```bash
+ufw status
 ```
