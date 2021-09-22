@@ -1,6 +1,10 @@
 # solana_useful
 Useful to run solana validator
 
+Check this link https://teletype.in/@in_extremo/solana_useful
+
+
+```bash
 sudo bash -c "cat >/etc/sysctl.d/20-solana-udp-buffers.conf <<EOF
 # Increase UDP buffer size
 net.core.rmem_default = 134217728
@@ -22,22 +26,23 @@ sudo bash -c "cat >/etc/security/limits.d/90-solana-nofiles.conf <<EOF
 # Increase process file descriptor count limit
 * - nofile 700000
 EOF"
+```
 
 =========================================================================================================
 
-
+```bash
 solana-keygen new -o ~/solana/vote-account-keypair.json
 
 solana create-vote-account ~/solana/vote-account-keypair.json ~/solana/validator-keypair.json
-
+```
 =============================================
-
+```bash
 nano /etc/systemd/system/solana.service
-
+```
 -----
 test
 ===========================================
-
+```bash
 [Unit]
 Description=Solana TdS node
 After=network.target syslog.target
@@ -74,9 +79,10 @@ ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
 WantedBy=multi-user.target
-
+```
 ----main-----
 
+```bash
 [Unit]
 Description=Solana Validator
 After=network.target
@@ -117,14 +123,14 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 
 [Install]
 WantedBy=multi-user.target
-
+```
 
 =============================
-
+```bash
 nano /etc/logrotate.d/solana.logrotate
-
+```
 ===========
-
+```bash
 /root/solana/solana.log {
   rotate 7
   daily
@@ -133,26 +139,26 @@ nano /etc/logrotate.d/solana.logrotate
     systemctl kill -s USR1 solana.service
   endscript
 }
-
+```
 
 
 
 =======================================
 
-
+```bash
 sh -c "$(curl -sSfL https://release.solana.com/v1.7.11/install)"
-
+```
 
 
 ===================
-
+```bash
 solana config set --url https://api.testnet.solana.com --keypair ~/solana/validator-keypair.json
-
-
+```
+```bash
 solana config set --url https://api.mainnet-beta.solana.com --keypair ~/solana/validator-keypair.json
-
+```
 ========
-
+```bash
 systemctl daemon-reload
 
 
@@ -160,55 +166,64 @@ systemctl enable solana
 
 
 systemctl start solana
-
-
+```
+```bash
 tail -f /root/solana/solana.log
+```
 ==========
 
+```bash
 solana validator-info publish "YourName" -n keybaseUsername -w "https://yoursite.com" -d "Blocks must go on"
-
+```
 ================================
 change vote author withdrawer
 ================================
-
+```bash
 solana vote-authorize-withdrawer "/root/solana/vote-account-keypair.json" "/root/solana/validator-keypair.json" "/root/solana/solflare-raw-key-7EWKPuLVsbMQGpPtBa5HWNyb9wn1K5Cgzwk5iqrpF39n.json"
-
+```
 ====================
-
+```bash
 solana vote-update-commission ~/solana/vote-account-keypair.json 10 ~/solana/validator-keypair.json
-
+```
 =============
 
 
 =======
 ramdisk
 -====
-
+```bash
 systemctl stop solana
 swapoff -a
 dd if=/dev/zero of=/swapfile bs=1G count=128
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
-
+```
+```bash
 nano /etc/fstab
-
+```
+```bash
 /swapfile none swap sw 0 0
 tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size=64G 0 0
-
+```
+```bash
 mkdir -p /mnt/ramdisk
 mount /mnt/ramdisk
-
+```
+```bash
 nano /etc/systemd/system/solana.service
- 
+```
+ ```bash
  --accounts /mnt/ramdisk/accounts \
- 
+ ```
+```bash
 systemctl daemon-reload
 systemctl start solana
- 
+``` 
 #####################################
           Ufw
 ###########################
+```bash
 ufw allow 22
 ufw deny out from any to 10.0.0.0/8
 ufw deny out from any to 172.16.0.0/12
@@ -217,8 +232,6 @@ ufw deny out from any to 100.64.0.0/10
 ufw deny out from any to 198.18.0.0/15
 ufw deny out from any to 169.254.0.0/16
 ufw enable
+```
 
-
-# solana config set --url https://api.mainnet-beta.solana.com --keypair ~/solana/validator-keypair.json
- 
  
