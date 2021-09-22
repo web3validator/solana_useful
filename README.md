@@ -3,6 +3,15 @@ Useful to run solana validator
 
 Check this link https://teletype.in/@in_extremo/solana_useful
 
+# Easy UPDATE
+
+```bash
+solana-install init 1.7.10  
+```
+
+```bash
+solana-validator --ledger ~/solana/ledger wait-for-restart-window && systemctl restart solana && tail -f solana.log
+```
 
 ```bash
 sudo bash -c "cat >/etc/sysctl.d/20-solana-udp-buffers.conf <<EOF
@@ -32,7 +41,8 @@ EOF"
 
 ```bash
 solana-keygen new -o ~/solana/vote-account-keypair.json
-
+```
+```bash
 solana create-vote-account ~/solana/vote-account-keypair.json ~/solana/validator-keypair.json
 ```
 =============================================
@@ -80,8 +90,9 @@ ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
 WantedBy=multi-user.target
 ```
-----main-----
-
+============
+MAIN
+============
 ```bash
 [Unit]
 Description=Solana Validator
