@@ -2,7 +2,7 @@
 
 ```bash
 systemctl stop solana
-rm ~/solana/ledger
+rm -rf ~/solana/ledger
 rm /etc/systemd/system/solana.service
 nano /etc/systemd/system/solana.service
 ```
