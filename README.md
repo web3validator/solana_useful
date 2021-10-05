@@ -195,9 +195,9 @@ tail -f /root/solana/solana.log
 ```bash
 solana validator-info publish "YourName" -n keybaseUsername -w "https://yoursite.com" -d "Blocks must go on"
 ```
-================================
+=
 change vote author withdrawer
-================================
+=
 ```bash
 solana vote-authorize-withdrawer "/root/solana/vote-account-keypair.json" "/root/solana/validator-keypair.json" "/root/solana/solflare-raw-key-7EWKPuLVsbMQGpPtBa5HWNyb9djfndimok5iqrpF39n.json"
 ```
