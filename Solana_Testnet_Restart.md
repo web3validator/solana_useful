@@ -22,16 +22,17 @@ RestartSec=1
 LimitNOFILE=1024000
 Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
---entrypoint entrypoint.testnet.solana.com:8001 \
---entrypoint entrypoint2.testnet.solana.com:8001 \
---entrypoint entrypoint3.testnet.solana.com:8001 \
---expected-bank-hash E3MJucWkWkugqJ8ewHAkDWuCN6uDxEychwjFFCwJ16ic \
---known-validator 3K8BYGTPD9AxqYQDPdU8PPy6AfiSwf4hDmFy1xXGB8Ns \
---known-validator 5dB4Ygb8Sf3Sssdxxrpbb4NFX9bMrYnieiz11Vr5xJkJ \
---known-validator 7TcmJn12spW6KQJp4fvvo45d1hpxS8EnLjKMxihtNZ1V \
---known-validator 4jhyvbBHbsRDF6och7pDQ7ahYTUr7wNkAYJTLLuMUtku \
---known-validator 4rVaXrd7BLSFZMSm4Lq63nxkVyezGxsQVpUhc9LqbxVk \
---known-validator 82k4RGZAJxtXvW3hzgmHB2q4oDHzgwMR2cGXup324gsJ \
+--wait-for-supermajority 96965687 \
+--expected-bank-hash 5GSuuhkJfRqZK9LQdvFY7bramdNiQgTEFJp8w7DtZVUN \
+--expected-shred-version 37137 \
+--entrypoint 5.9.35.85:8000 \
+--entrypoint 94.198.53.85:8000 \
+--entrypoint 178.170.42.36:8000 \
+--known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
+--known-validator F1TuusSghAobmbGAgNrdxRS9nBjwT6J1yyALUvpEA1is \
+--known-validator 9YVpEeZf8uBoUtzCFC6SSFDDqPt16uKFubNhLvGxeUDy \
+--known-validator GmgV3mnVohRz99rsnMNWNFqzop4oSgNv6Hx1kE7PKvYU \
+--known-validator GcibmF4zgb6Vr4bpZZYHGDPZNWiLnBDUHdpJZTsTDvwe \
 --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
 --only-known-rpc \
 --wal-recovery-mode skip_any_corrupted_record \
@@ -45,9 +46,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --maximum-local-snapshot-age 1000 \
 --no-port-check \
 --rpc-bind-address 127.0.0.1 \
---rpc-port 8899 \
---wait-for-supermajority 95038710 \
---expected-shred-version 50850
+--rpc-port 8899
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
