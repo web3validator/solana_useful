@@ -15,7 +15,7 @@ solana-validator --ledger ~/solana/ledger wait-for-restart-window && systemctl r
 Check catchup
 
 ```bash
-solana catchup --our-localhost --follow --log
+solana catchup ~/solana/validator-keypair.json --our-localhost --follow --log
 ```
 
 ```bash
