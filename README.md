@@ -6,7 +6,7 @@ Check this link https://teletype.in/@in_extremo/solana_useful
 # Easy UPDATE
 
 ```bash
-solana-install init 1.7.10  
+solana-install init 1.7.14
 ```
 
 ```bash
@@ -162,7 +162,7 @@ nano /etc/logrotate.d/solana.logrotate
 =======================================
 
 ```bash
-sh -c "$(curl -sSfL https://release.solana.com/v1.7.11/install)"
+sh -c "$(curl -sSfL https://release.solana.com/v1.7.14/install)"
 ```
 
 
