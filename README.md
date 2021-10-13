@@ -110,33 +110,39 @@ Type=simple
 Restart=always
 RestartSec=1
 User=root
-LimitNOFILE=700000
+LimitNOFILE=1024000
 Environment="SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password""
 Environment="EXPECTED_GENESIS_HASH=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d"
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
---ledger /root/solana/ledger \
---dynamic-port-range 8001-8011 \
+--known-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
+--known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
+--known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
+--known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
+--entrypoint entrypoint.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint2.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint4.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
+--ledger /root/solana/ledger \
+--limit-ledger-size 50000000 \
+--accounts-db-caching-enabled \
+--accounts /mnt/ramdisk/accounts \
+--dynamic-port-range 8001-8011 \
 --gossip-port 8001 \
+--no-port-check \
 --rpc-port 8899 \
 --rpc-bind-address 127.0.0.1 \
---log /root/solana/solana.log \
---only-known-rpc \
---no-untrusted-rpc \
+--private-rpc \
+--only-known-rpc\
 --snapshot-interval-slots 500 \
 --maximum-local-snapshot-age 500 \
 --wal-recovery-mode skip_any_corrupted_record \
 --snapshot-compression none \
 --expected-bank-hash Fi4p8z3AkfsuGXZzQ4TD28N8QDNSWC7ccqAqTs2GPdPu \
---known-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
---known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
---known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
---known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
---entrypoint mainnet-beta.solana.com:8001 \
---limit-ledger-size 50000000 \
 --expected-genesis-hash $EXPECTED_GENESIS_HASH \
---accounts /mnt/ramdisk/accounts
+--log /root/solana/solana.log \
 
 [Install]
 WantedBy=multi-user.target
