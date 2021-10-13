@@ -88,6 +88,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --snapshot-interval-slots 500 \
 --maximum-local-snapshot-age 1000 \
 --no-port-check \
+--private-rpc \
 --rpc-bind-address 127.0.0.1 \
 --rpc-port 8899
 ExecReload=/bin/kill -s HUP $MAINPID
@@ -121,17 +122,17 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --rpc-port 8899 \
 --rpc-bind-address 127.0.0.1 \
 --log /root/solana/solana.log \
---private-rpc \
+--only-known-rpc \
 --no-untrusted-rpc \
 --snapshot-interval-slots 500 \
 --maximum-local-snapshot-age 500 \
 --wal-recovery-mode skip_any_corrupted_record \
 --snapshot-compression none \
 --expected-bank-hash Fi4p8z3AkfsuGXZzQ4TD28N8QDNSWC7ccqAqTs2GPdPu \
---trusted-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
---trusted-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
---trusted-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
---trusted-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
+--known-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
+--known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
+--known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
+--known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
 --entrypoint mainnet-beta.solana.com:8001 \
 --limit-ledger-size 50000000 \
 --expected-genesis-hash $EXPECTED_GENESIS_HASH \
