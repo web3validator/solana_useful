@@ -218,34 +218,26 @@ solana vote-update-commission ~/solana/vote-account-keypair.json 10 ~/solana/val
 =======
 ramdisk
 -====
-```bash
-systemctl stop solana
+# swapfile
+## create swapfile
 swapoff -a
 dd if=/dev/zero of=/swapfile bs=1G count=128
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
-```
-```bash
-nano /etc/fstab
-```
-```bash
+
+## add to /etc/fstab
 /swapfile none swap sw 0 0
+
+# ramdisk
+## add to /etc/fstab
 tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size=200G 0 0
-```
-```bash
+
 mkdir -p /mnt/ramdisk
 mount /mnt/ramdisk
-```
-```bash
-nano /etc/systemd/system/solana.service
-```
- ```bash
- --accounts /mnt/ramdisk/accounts \
- ```
-```bash
-systemctl daemon-reload
-systemctl start solana
+
+# add to solana.service
+--accounts /mnt/ramdisk/accounts
 ``` 
 #####################################
           Ufw
