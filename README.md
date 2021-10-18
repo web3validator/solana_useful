@@ -140,9 +140,10 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --maximum-local-snapshot-age 500 \
 --wal-recovery-mode skip_any_corrupted_record \
 --snapshot-compression none \
---expected-bank-hash Fi4p8z3AkfsuGXZzQ4TD28N8QDNSWC7ccqAqTs2GPdPu \
 --expected-genesis-hash $EXPECTED_GENESIS_HASH \
---log /root/solana/solana.log \
+--log /root/solana/solana.log
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
 
 [Install]
 WantedBy=multi-user.target
