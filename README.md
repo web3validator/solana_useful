@@ -220,20 +220,24 @@ ramdisk
 -====
 
 #create swapfile
+```bash
 swapoff -a
 dd if=/dev/zero of=/swapfile bs=1G count=128
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
-
+```
+```bash
 #add to /etc/fstab
 /swapfile none swap sw 0 0
 tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size=200G 0 0
-
+``` 
+```bash
 mkdir -p /mnt/ramdisk
 mount /mnt/ramdisk
-
+``` 
 #add to solana.service
+```bash
 --accounts /mnt/ramdisk/accounts
 ``` 
 #####################################
