@@ -48,7 +48,7 @@ EOF"
 solana-keygen new -o ~/solana/vote-account-keypair.json
 ```
 ```bash
-solana create-vote-account ~/solana/vote-account-keypair.json ~/solana/validator-keypair.json
+solana create-vote-account ~/solana/vote-account-keypair.json ~/solana/validator-keypair.json ~/solana/withdrawer.json 
 ```
 =============================================
 ```bash
