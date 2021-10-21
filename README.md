@@ -6,7 +6,7 @@ Check this link https://teletype.in/@in_extremo/solana_useful
 # Easy UPDATE
 
 ```bash
-solana-install init 1.7.14
+solana-install init 1.8.1
 ```
 
 ```bash
