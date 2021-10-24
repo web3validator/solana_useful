@@ -228,7 +228,9 @@ chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
 ```
-#add to /etc/fstab
+```bash
+nano /etc/fstab
+```
 ```bash
 /swapfile none swap sw 0 0
 tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size=200G 0 0
