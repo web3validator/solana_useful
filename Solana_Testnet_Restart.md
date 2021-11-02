@@ -27,7 +27,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --entrypoint 178.170.42.36:8000 \
 --entrypoint141.94.139.57:8000 \
 --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
---only-known-rpc \
 --wal-recovery-mode skip_any_corrupted_record \
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
