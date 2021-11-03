@@ -61,9 +61,6 @@ solana create-vote-account ~/solana/vote-account-keypair.json ~/solana/validator
 
 ```bash
 rm /etc/systemd/system/solana.service
-```
-
-```bash
 nano /etc/systemd/system/solana.service
 ```
 -----
