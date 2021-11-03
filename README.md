@@ -58,6 +58,11 @@ solana-keygen recover -o ~/solana/vote-account-keypair.json
 solana create-vote-account ~/solana/vote-account-keypair.json ~/solana/validator-keypair.json ~/solana/withdrawer.json 
 ```
 =============================================
+
+```bash
+rm /etc/systemd/system/solana.service
+```
+
 ```bash
 nano /etc/systemd/system/solana.service
 ```
@@ -103,6 +108,15 @@ ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
 WantedBy=multi-user.target
 ```
+
+```bash
+systemctl daemon-reload
+
+systemctl enable solana
+
+systemctl start solana
+```
+
 ============
 MAIN
 ============
