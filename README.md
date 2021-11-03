@@ -111,7 +111,7 @@ systemctl daemon-reload
 
 systemctl enable solana
 
-systemctl start solana
+systemctl restart solana
 ```
 
 ============
