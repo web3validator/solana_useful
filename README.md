@@ -2,6 +2,10 @@
 Useful to run solana validator
 
 Check this link https://teletype.in/@in_extremo/solana_useful
+```bash
+sh -c "$(curl -sSfL https://release.solana.com/v1.7.14/install)"
+```
+
 
 # Easy UPDATE
 
