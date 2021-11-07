@@ -220,6 +220,10 @@ systemctl start solana
 ```bash
 tail -f /root/solana/solana.log
 ```
+
+```bash
+solana catchup ~/solana/validator-keypair.json --our-localhost --follow --log
+```
 ==========
 
 ```bash
