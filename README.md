@@ -297,7 +297,7 @@ ufw enable
 ```bash
 ufw status
 ```
-#add solana into PATH
+# add solana into PATH
 ```bash
 sudo su
 
