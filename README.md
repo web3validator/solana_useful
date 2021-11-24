@@ -297,3 +297,11 @@ ufw enable
 ```bash
 ufw status
 ```
+#add solana into PATH
+```bash
+sudo su
+
+echo "export PATH="/root/.local/share/solana/install/active_release/bin:$PATH"" >> ~/.bashrc
+
+source ~/.bashrc
+```
