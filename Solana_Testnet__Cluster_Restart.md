@@ -35,17 +35,19 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --no-port-check \
 --rpc-bind-address 127.0.0.1 \
 --rpc-port 8899 \
---wait-for-supermajority 103858866 \
---expected-shred-version 40424 \
+--wait-for-supermajority 108469041 \
+--expected-shred-version 57124 \
 --entrypoint 5.9.35.85:8001 \
---entrypoint 178.170.42.36:8000 \
---expected-bank-hash 7haWD8r1tvRaK1gw95eVedXKJTVD43PXnoBXyjerFbav \
---known-validator GcibmF4zgb6Vr4bpZZYHGDPZNWiLnBDUHdpJZTsTDvwe \
+--entrypoint 84.213.68.99:8000 \
+--entrypoint entrypoint.testnet.solana.com:8001 \
+--entrypoint entrypoint2.testnet.solana.com:8001 \
+--entrypoint entrypoint3.testnet.solana.com:8001 \
+--expected-bank-hash BEAKFSqMu6H7s6H88wRrpTerGpmoLgMjSWbbyUheLti1 \
 --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
---known-validator 3iPu9xQ3mCFmqME9ZajuZbFHjwagAxhgfTxnc4pWbEBC \
---known-validator 8SRKNfvMerfA1BdU79CAwU4wNfjnDvFrBo3o5f5TS4uv \
---known-validator FCnsZL8d45gC5aVsmheV3zs533DfM2jRk1vNnDgLNkfr \
---known-validator 8VNj7K6ssFcUogRfT6miUzz8HTKu1nX2n8MYr5z49CXb 
+--known-validator 9YVpEeZf8uBoUtzCFC6SSFDDqPt16uKFubNhLvGxeUDy \
+--known-validator 4958nAd4Gp1MZQEg97b7prdDKAgC5Ab3iQtNzAWyHqEV \
+--known-validator 4jhyvbBHbsRDF6och7pDQ7ahYTUr7wNkAYJTLLuMUtku \
+--known-validator D2ULkLgZk1d6RW3Wmd14vFNfkBgi6NMM8CDNsNuNXvfV \
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
