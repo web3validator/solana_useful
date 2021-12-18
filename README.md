@@ -80,8 +80,7 @@ solana create-vote-account ~/solana/vote-account-keypair.json ~/solana/validator
 sudo su
 rm /etc/systemd/system/solana.service
 
-echo
-"[Unit]
+echo "[Unit]
 Description=Solana TdS node
 After=network.target syslog.target
 StartLimitIntervalSec=0
