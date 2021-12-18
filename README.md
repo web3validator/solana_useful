@@ -116,7 +116,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
-WantedBy=multi-user.target " >> /etc/systemd/system/solana.service
+WantedBy=multi-user.target" >> /etc/systemd/system/solana.service
 
 systemctl daemon-reload
 
@@ -138,7 +138,10 @@ systemctl restart solana
 MAIN
 ============
 ```bash
-[Unit]
+sudo su
+rm /etc/systemd/system/solana.service
+
+echo "[Unit]
 Description=Solana Validator
 After=network.target
 StartLimitIntervalSec=0
@@ -183,7 +186,14 @@ ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=multi-user.target" >> /etc/systemd/system/solana.service
+
+systemctl daemon-reload
+
+systemctl enable solana
+
+systemctl restart solana
+
 ```
 
 =============================
