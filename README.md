@@ -138,10 +138,7 @@ systemctl restart solana
 MAIN
 ============
 ```bash
-sudo su
-rm /etc/systemd/system/solana.service
-
-echo "[Unit]
+[Unit]
 Description=Solana Validator
 After=network.target
 StartLimitIntervalSec=0
@@ -177,7 +174,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --private-rpc \
 --only-known-rpc\
 --snapshot-interval-slots 500 \
---maximum-local-snapshot-age 500 \
+--maximum-local-snapshot-age 1000 \
 --wal-recovery-mode skip_any_corrupted_record \
 --snapshot-compression none \
 --expected-genesis-hash $EXPECTED_GENESIS_HASH \
@@ -186,14 +183,7 @@ ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 
 [Install]
-WantedBy=multi-user.target" >> /etc/systemd/system/solana.service
-
-systemctl daemon-reload
-
-systemctl enable solana
-
-systemctl restart solana
-
+WantedBy=multi-user.target
 ```
 
 =============================
