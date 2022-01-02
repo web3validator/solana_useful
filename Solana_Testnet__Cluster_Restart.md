@@ -22,7 +22,6 @@ RestartSec=1
 LimitNOFILE=1024000
 Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
---expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
 --wal-recovery-mode skip_any_corrupted_record \
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
@@ -35,19 +34,18 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --no-port-check \
 --rpc-bind-address 127.0.0.1 \
 --rpc-port 8899 \
---wait-for-supermajority 108469041 \
---expected-shred-version 57124 \
+--wait-for-supermajority 110973418 \
+--expected-shred-version 12339 \
 --entrypoint 5.9.35.85:8001 \
---entrypoint 84.213.68.99:8000 \
 --entrypoint entrypoint.testnet.solana.com:8001 \
 --entrypoint entrypoint2.testnet.solana.com:8001 \
 --entrypoint entrypoint3.testnet.solana.com:8001 \
+--expected-bank-hash WVDsuJJbhcdqH6vQrpZi5GYoPnMAaKw4THMtwes77DS \
 --expected-bank-hash BEAKFSqMu6H7s6H88wRrpTerGpmoLgMjSWbbyUheLti1 \
 --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
---known-validator 9YVpEeZf8uBoUtzCFC6SSFDDqPt16uKFubNhLvGxeUDy \
---known-validator 4958nAd4Gp1MZQEg97b7prdDKAgC5Ab3iQtNzAWyHqEV \
---known-validator 4jhyvbBHbsRDF6och7pDQ7ahYTUr7wNkAYJTLLuMUtku \
---known-validator D2ULkLgZk1d6RW3Wmd14vFNfkBgi6NMM8CDNsNuNXvfV \
+--known-validator 4z755TDizaUVyRRKw7y8DnTnnon8ksQYsZyU3feF6yFc \
+--known-validator Bszp6hDL19ymPZ8efp9venQYb4ae2rRmEtVp4aG6k8nx \
+--known-validator 8SRKNfvMerfA1BdU79CAwU4wNfjnDvFrBo3o5f5TS4uv \
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
