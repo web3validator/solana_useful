@@ -2,6 +2,7 @@
 
 ```bash
 systemctl stop solana
+solana-install init v1.8.11
 rm -rf ~/solana/ledger
 rm /etc/systemd/system/solana.service 
 nano /etc/systemd/system/solana.service
