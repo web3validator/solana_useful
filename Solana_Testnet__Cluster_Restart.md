@@ -1,6 +1,7 @@
 #Stop and rm ledger, and backup service
 
 ```bash
+sudo su
 systemctl stop solana
 solana-install init v1.8.11
 rm -rf ~/solana/ledger
