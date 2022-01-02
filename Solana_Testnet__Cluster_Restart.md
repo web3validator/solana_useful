@@ -38,13 +38,13 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --no-snapshot-fetch \
 --no-genesis-fetch \
 --expected-shred-version 12339 \
+--expected-bank-hash WVDsuJJbhcdqH6vQrpZi5GYoPnMAaKw4THMtwes77DS \
 --wait-for-supermajority 110973418 \
 --expected-shred-version 12339 \
 --entrypoint 5.9.35.85:8001 \
 --entrypoint entrypoint.testnet.solana.com:8001 \
 --entrypoint entrypoint2.testnet.solana.com:8001 \
 --entrypoint entrypoint3.testnet.solana.com:8001 \
---expected-bank-hash WVDsuJJbhcdqH6vQrpZi5GYoPnMAaKw4THMtwes77DS \
 --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
 --known-validator 4z755TDizaUVyRRKw7y8DnTnnon8ksQYsZyU3feF6yFc \
 --known-validator Bszp6hDL19ymPZ8efp9venQYb4ae2rRmEtVp4aG6k8nx \
