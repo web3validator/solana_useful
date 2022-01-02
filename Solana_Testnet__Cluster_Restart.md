@@ -35,6 +35,10 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --no-port-check \
 --rpc-bind-address 127.0.0.1 \
 --rpc-port 8899 \
+--no-snapshot-fetch \
+--no-genesis-fetch \
+--expected-bank-hash WVDsuJJbhcdqH6vQrpZi5GYoPnMAaKw4THMtwes77DS \
+--expected-shred-version 12339 \
 --wait-for-supermajority 110973418 \
 --expected-shred-version 12339 \
 --entrypoint 5.9.35.85:8001 \
