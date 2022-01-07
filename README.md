@@ -108,7 +108,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --vote-account /root/solana/vote-account-keypair.json \
 --ledger /root/solana/ledger \
 --limit-ledger-size 50000000 \
---dynamic-port-range 8000-8010 \
+--dynamic-port-range 8000-8011 \
 --log /root/solana/solana.log \
 --snapshot-interval-slots 500 \
 --maximum-local-snapshot-age 1000 \
