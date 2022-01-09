@@ -120,7 +120,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
-WantedBy=multi-user.target"
+WantedBy=multi-user.target
 ```
 
 
