@@ -292,8 +292,8 @@ ufw allow 22
 ufw allow 8000/tcp
 ufw allow 8899/tcp
 ufw allow 8900/tcp
-ufw allow 8000:8010/tcp
-ufw allow 8000:8010/udp
+ufw allow 8000:8011/tcp
+ufw allow 8000:8011/udp
 
 ufw deny out from any to 10.0.0.0/8
 ufw deny out from any to 172.16.0.0/12
