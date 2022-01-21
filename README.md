@@ -23,11 +23,10 @@ solana leader-schedule | grep $(solana address) | wc -l
 # Easy UPDATE
 
 ```bash
-solana-install init 1.8.1
-```
-
-```bash
-solana-validator --ledger ~/solana/ledger wait-for-restart-window && systemctl restart solana && tail -f ~/solana/solana.log
+sudo su
+solana-install init 1.8.13
+solana-validator --ledger ~/solana/ledger wait-for-restart-window && systemctl restart solana 
+echo done
 ```
 Check catchup
 
