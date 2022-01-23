@@ -24,7 +24,7 @@ solana leader-schedule | grep $(solana address) | wc -l
 
 ```bash
 sudo su
-solana-install init 1.8.13
+solana-install init 1.8.14
 solana-validator --ledger ~/solana/ledger wait-for-restart-window && systemctl restart solana 
 echo done
 ```
