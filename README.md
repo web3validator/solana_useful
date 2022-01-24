@@ -14,11 +14,6 @@ echo "export PATH="/root/.local/share/solana/install/active_release/bin:$PATH"" 
 source ~/.bashrc
 ```
 
-Посмотреть сколько слотов в эпоху назначено ботом
-
-```bash
-solana leader-schedule | grep $(solana address) | wc -l
-```
 
 # Easy UPDATE
 
