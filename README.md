@@ -53,7 +53,7 @@ sudo bash -c "cat >/etc/security/limits.d/90-solana-nofiles.conf <<EOF
 EOF"
 ```
 
-# install TRIM
+# install TRIM and performance mode
 
 ```bash
 systemctl edit fstrim.timer
@@ -65,9 +65,9 @@ Paste:
 [Timer]
 OnCalendar=0/6:00:00
 ```
-
-
-
+```bash
+for i in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do echo performance > $i; done
+```
 ===========================================================================
 
 ```bash
