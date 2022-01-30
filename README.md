@@ -53,6 +53,21 @@ sudo bash -c "cat >/etc/security/limits.d/90-solana-nofiles.conf <<EOF
 EOF"
 ```
 
+# install TRIM
+
+```bash
+systemctl edit fstrim.timer
+```
+
+Paste:
+
+```bash
+[Timer]
+OnCalendar=0/6:00:00
+```
+
+
+
 =========================================================================================================
 
 ```bash
