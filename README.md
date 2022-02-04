@@ -120,11 +120,10 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --limit-ledger-size 50000000 \
 --dynamic-port-range 8000-8011 \
 --log /root/solana/solana.log \
---snapshot-interval-slots 500 \
---maximum-local-snapshot-age 1000 \
+--snapshot-interval-slots 1000 \
+--maximum-local-snapshot-age 2000 \
 --no-port-check \
 --private-rpc \
---rpc-bind-address 127.0.0.1 \
 --rpc-port 8899
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
