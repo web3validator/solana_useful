@@ -122,6 +122,11 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --log /root/solana/solana.log \
 --snapshot-interval-slots 1000 \
 --maximum-local-snapshot-age 2000 \
+--incremental-snapshots \
+--full-snapshot-interval-slots 100000 \
+--incremental-snapshot-interval-slots 100 \
+--maximum-full-snapshots-to-retain 2 \
+--maximum-incremental-snapshots-to-retain 4 \
 --no-port-check \
 --private-rpc \
 --rpc-port 8899
