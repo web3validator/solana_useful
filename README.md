@@ -101,13 +101,13 @@ RestartSec=1
 LimitNOFILE=1024000
 Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \n
- --entrypoint entrypoint.testnet.solana.com:8001 \ \n
- --entrypoint entrypoint2.testnet.solana.com:8001 \ \n
- --entrypoint entrypoint3.testnet.solana.com:8001 \ \n
- --known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \ \n
- --known-validator 7XSY3MrYnK8vq693Rju17bbPkCN3Z7KvvfvJx4kdrsSY \ \n
- --known-validator Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN \ \n
- --known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \ \n
+ --entrypoint entrypoint.testnet.solana.com:8001 \ 
+ --entrypoint entrypoint2.testnet.solana.com:8001 \ 
+ --entrypoint entrypoint3.testnet.solana.com:8001 \ 
+ --known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \ 
+ --known-validator 7XSY3MrYnK8vq693Rju17bbPkCN3Z7KvvfvJx4kdrsSY \ 
+ --known-validator Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN \ 
+ --known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \ 
  --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \ \n
  --only-known-rpc \ \n
  --wal-recovery-mode skip_any_corrupted_record \ \n
