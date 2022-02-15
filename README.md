@@ -127,13 +127,7 @@ ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
 WantedBy=multi-user.target" > /etc/systemd/system/solana.service
 
-systemctl daemon-reload
-
-
-systemctl enable solana
-
-
-systemctl restart solana
+cat /etc/systemd/system/solana.service
 
 ```
 
