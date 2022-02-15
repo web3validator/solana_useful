@@ -100,7 +100,7 @@ Restart=always
 RestartSec=1
 LimitNOFILE=1024000
 Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
-ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator\n
+ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator\ \n
  --entrypoint entrypoint.testnet.solana.com:8001 \ 
  --entrypoint entrypoint2.testnet.solana.com:8001 \ 
  --entrypoint entrypoint3.testnet.solana.com:8001 \ 
@@ -112,7 +112,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator\
  --only-known-rpc \ 
  --wal-recovery-mode skip_any_corrupted_record \ 
  --identity /root/solana/validator-keypair.json \ 
- --vote-account /root/solana/vote-account-keypair.json \ 
+ --vote-account /root/solana/vote-account-keypair.json \
  --ledger /root/solana/ledger \ 
  --limit-ledger-size 50000000 \ 
  --dynamic-port-range 8000-8020 \ 
