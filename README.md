@@ -89,8 +89,9 @@ solana create-vote-account ~/solana/vote-account-keypair.json ~/solana/validator
 ```bash
 sudo su
 rm /etc/systemd/system/solana.service
+nano /etc/systemd/system/solana.service
 
-echo "[Unit]
+[Unit]
 Description=Solana TdS node
 After=network.target syslog.target
 StartLimitIntervalSec=0
@@ -125,12 +126,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
-WantedBy=multi-user.target" > /etc/systemd/system/solana.service
-Okay 
-systemctl daemon-reload
-systemctl restart solana
-
-
+WantedBy=multi-user.target
 ```
 
 =============================
