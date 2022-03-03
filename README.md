@@ -173,8 +173,12 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --rpc-bind-address 127.0.0.1 \
 --private-rpc \
 --only-known-rpc\
---snapshot-interval-slots 500 \
---maximum-local-snapshot-age 1000 \
+--incremental-snapshots \
+--full-snapshot-interval-slots 30000 \
+--incremental-snapshot-interval-slots 500 \
+--maximum-full-snapshots-to-retain 1 \
+--maximum-incremental-snapshots-to-retain 2 \
+--maximum-local-snapshot-age 1500 \
 --wal-recovery-mode skip_any_corrupted_record \
 --snapshot-compression none \
 --expected-genesis-hash $EXPECTED_GENESIS_HASH \
