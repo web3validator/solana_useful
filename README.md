@@ -130,6 +130,62 @@ ExecStop=/bin/kill -s QUIT $MAINPID
 WantedBy=multi-user.target
 ```
 
+
+
+```bash
+sudo su
+rm /etc/systemd/system/solana.service
+nano /etc/systemd/system/solana.service
+```
+```bash
+[Unit]
+Description=Solana Validator
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+LimitNOFILE=1024000
+Environment="SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password""
+Environment="EXPECTED_GENESIS_HASH=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d"
+ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
+--known-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
+--known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
+--known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
+--known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
+--entrypoint entrypoint.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint2.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint4.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
+--identity /root/solana/validator-keypair.json \
+--vote-account /root/solana/vote-account-keypair.json \
+--ledger /root/solana/ledger \
+--limit-ledger-size 50000000 \
+--accounts-db-caching-enabled \
+--dynamic-port-range 8001-8011 \
+--gossip-port 8001 \
+--no-port-check \
+--rpc-port 8899 \
+--rpc-bind-address 127.0.0.1 \
+--private-rpc \
+--only-known-rpc\
+--snapshot-interval-slots 500 \
+--maximum-local-snapshot-age 1000 \
+--wal-recovery-mode skip_any_corrupted_record \
+--snapshot-compression none \
+--expected-genesis-hash $EXPECTED_GENESIS_HASH \
+--log /root/solana/solana.log
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+```
+
 =============================
 ```bash
 nano /etc/logrotate.d/solana.logrotate
