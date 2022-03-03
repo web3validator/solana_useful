@@ -19,7 +19,7 @@ source ~/.bashrc
 
 ```bash
 sudo su
-solana-install init 1.8.14
+solana-install init 1.9.9
 solana-validator --ledger ~/solana/ledger wait-for-restart-window && systemctl restart solana 
 echo done
 ```
