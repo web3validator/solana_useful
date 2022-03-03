@@ -185,7 +185,11 @@ ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
 WantedBy=multi-user.target
 ```
+=============================
+systemctl daemon-reload
+systemctl restart solana
 
+=============================
 =============================
 ```bash
 nano /etc/logrotate.d/solana.logrotate
