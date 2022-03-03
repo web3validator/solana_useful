@@ -90,7 +90,8 @@ solana create-vote-account ~/solana/vote-account-keypair.json ~/solana/validator
 sudo su
 rm /etc/systemd/system/solana.service
 nano /etc/systemd/system/solana.service
-
+```
+```bash
 [Unit]
 Description=Solana TdS node
 After=network.target syslog.target
