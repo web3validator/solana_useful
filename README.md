@@ -234,7 +234,7 @@ systemctl daemon-reload
 systemctl enable solana
 
 
-systemctl start solana
+systemctl restart solana
 ```
 ```bash
  solana-validator --ledger /root/ledger wait-for-restart-window && systemctl restart solana
