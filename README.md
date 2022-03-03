@@ -166,7 +166,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --ledger /root/solana/ledger \
 --limit-ledger-size 50000000 \
 --accounts-db-caching-enabled \
---dynamic-port-range 8001-8011 \
+--dynamic-port-range 8001-8020 \
 --gossip-port 8001 \
 --no-port-check \
 --rpc-port 8899 \
