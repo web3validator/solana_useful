@@ -311,6 +311,12 @@ ufw deny out from any to 100.64.0.0/10
 ufw deny out from any to 198.18.0.0/15
 ufw deny out from any to 169.254.0.0/16
 
+ufw enable
+```
+
+testnet use also
+
+```bash
 ufw deny proto udp from 65.21.235.66 to any && \
 ufw deny proto udp from 94.181.44.170 to any && \
 ufw deny proto udp from 141.95.145.179 to any && \
@@ -323,7 +329,6 @@ ufw deny proto udp from 68.168.220.110 to any && \
 ufw deny proto udp from 5.45.73.111 to any && \
 ufw deny proto udp from 141.94.248.167 to any && \
 ufw deny proto udp from 5.61.53.201 to any
-
 ufw enable
 ```
 ```bash
