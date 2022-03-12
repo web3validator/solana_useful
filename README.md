@@ -93,7 +93,7 @@ nano /etc/systemd/system/solana.service
 ```
 ```bash
 [Unit]
-Description=Solana TdS node
+Description=Solana Node
 After=network.target syslog.target
 StartLimitIntervalSec=0
 [Service]
@@ -110,19 +110,25 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --known-validator 7XSY3MrYnK8vq693Rju17bbPkCN3Z7KvvfvJx4kdrsSY \
 --known-validator Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN \
 --known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
---expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
 --only-known-rpc \
+--expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
 --wal-recovery-mode skip_any_corrupted_record \
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
 --ledger /root/solana/ledger \
+--snapshot-compression none \
+--incremental-snapshots \
+--full-snapshot-interval-slots 30000 \
+--incremental-snapshot-interval-slots 500 \
+--maximum-full-snapshots-to-retain 1 \
+--maximum-incremental-snapshots-to-retain 2 \
+--maximum-local-snapshot-age 1500 \
+--minimal-snapshot-download-speed 10485760 \
 --limit-ledger-size 50000000 \
 --dynamic-port-range 8000-8020 \
 --log /root/solana/solana.log \
---snapshot-interval-slots 1000 \
---maximum-local-snapshot-age 2000 \
---no-port-check \
 --private-rpc \
+--rpc-bind-address 127.0.0.1 \
 --rpc-port 8899
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
