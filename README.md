@@ -123,7 +123,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --maximum-full-snapshots-to-retain 1 \
 --maximum-incremental-snapshots-to-retain 2 \
 --maximum-local-snapshot-age 1500 \
---minimal-snapshot-download-speed 10485760 \
 --limit-ledger-size 50000000 \
 --dynamic-port-range 8000-8020 \
 --log /root/solana/solana.log \
