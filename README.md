@@ -136,7 +136,7 @@ ExecStop=/bin/kill -s QUIT $MAINPID
 WantedBy=multi-user.target
 ```
 
-
+# MAINNET service
 
 ```bash
 sudo su
@@ -196,10 +196,14 @@ ExecStop=/bin/kill -s QUIT $MAINPID
 WantedBy=multi-user.target
 ```
 =============================
+```bash
 systemctl daemon-reload
-systemctl restart solana
 
-=============================
+systemctl enable solana
+
+systemctl restart solana
+```
+
 =============================
 ```bash
 nano /etc/logrotate.d/solana.logrotate
