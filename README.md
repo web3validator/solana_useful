@@ -26,7 +26,7 @@ echo done
 Check catchup
 
 ```bash
-solana catchup ~/solana/validator-keypair.json --our-localhost --follow --log
+solana catchup ~/solana/validator-keypair.json --our-localhost
 ```
 
 ```bash
