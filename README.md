@@ -52,7 +52,13 @@ sudo bash -c "cat >/etc/security/limits.d/90-solana-nofiles.conf <<EOF
 * - nofile 700000
 EOF"
 ```
+# mitigate the vulnerability
+Fortunately, to mitigate the vulnerability is very easy. You do not need to stop any services or restart the computers. You just need to issue two commands on the node and gateway computers.
+```bash
+sudo /bin/bash -c 'echo "kernel.unprivileged_userns_clone=0" >> /etc/sysctl.conf'
 
+sudo sysctl -p
+```
 # install TRIM and performance mode
 
 ```bash
