@@ -136,6 +136,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --maximum-incremental-snapshots-to-retain 2 \
 --maximum-local-snapshot-age 1500 \
 --limit-ledger-size 50000000 \
+--no-os-network-limits-test \
 --dynamic-port-range 8000-8020 \
 --log /root/solana/solana.log \
 --private-rpc \
