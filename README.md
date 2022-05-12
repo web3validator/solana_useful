@@ -237,12 +237,6 @@ nano /etc/logrotate.d/solana.logrotate
 =======================================
 
 ```bash
-sh -c "$(curl -sSfL https://release.solana.com/v1.7.14/install)"
-```
-
-
-===================
-```bash
 solana config set --url https://api.testnet.solana.com --keypair ~/solana/validator-keypair.json
 ```
 ```bash
