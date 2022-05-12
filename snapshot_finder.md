@@ -64,16 +64,12 @@ Start script
 Mainnet  
 ```python
 python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger
-``` 
-`$HOME/solana/ledger/` - path to your `validator-ledger`
-
-
-then 
-```bash
 exit
 sudo su
 systemctl restart solana
-```
+``` 
+`$HOME/solana/ledger/` - path to your `validator-ledger`
+
 
 TdS  
 ```python
