@@ -95,6 +95,11 @@ solana-keygen recover -o ~/solana/vote-account-keypair.json
 solana create-vote-account ~/solana/vote-account-keypair.json ~/solana/validator-keypair.json ~/solana/withdrawer.json 
 ```
 =============================================
+#you can switch log record to warn only
+```bash
+Environment="RUST_LOG=warn"
+```
+
 # Testnet service
 
 ```bash
