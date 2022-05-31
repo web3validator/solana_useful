@@ -196,7 +196,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --rpc-bind-address 127.0.0.1 \
 --private-rpc \
 --only-known-rpc\
---incremental-snapshots \
 --full-snapshot-interval-slots 30000 \
 --incremental-snapshot-interval-slots 500 \
 --maximum-full-snapshots-to-retain 1 \
@@ -205,6 +204,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --wal-recovery-mode skip_any_corrupted_record \
 --snapshot-compression none \
 --expected-genesis-hash $EXPECTED_GENESIS_HASH \
+--no-os-network-limits-test \
 --log /root/solana/solana.log
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
