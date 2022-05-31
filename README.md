@@ -100,6 +100,27 @@ solana create-vote-account ~/solana/vote-account-keypair.json ~/solana/validator
 Environment="RUST_LOG=warn"
 ```
 
+# install sys-tuner service
+```bash
+nano /etc/systemd/system/sstd.service
+```
+```bash
+[Unit]
+Description=Solana System Tuning
+After=network.target
+Before=solana.service
+
+[Service]
+User=root
+ExecStart=/root/.local/share/solana/install/active_release/bin/solana-sys-tuner --user root
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
+```
+
 # Testnet service
 
 ```bash
