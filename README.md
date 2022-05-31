@@ -120,7 +120,11 @@ LimitNOFILE=65535
 [Install]
 WantedBy=multi-user.target
 ```
-
+```bash
+systemctl daemon-reload
+systemctl start sstd
+systemctl enable sstd
+```
 # Testnet service
 
 ```bash
