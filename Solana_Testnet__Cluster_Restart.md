@@ -60,3 +60,67 @@ systemctl restart solana
 tail -f ~/solana/solana.log | grep 'Waiting for'
 ```
 
+MAINNET
+
+
+```bash
+[Unit]
+Description=Solana Validator
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+LimitNOFILE=1024000
+Environment="SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password""
+Environment="EXPECTED_GENESIS_HASH=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d"
+ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
+--expected-shred-version 51382 \
+--known-validator PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb \
+--known-validator SerGoB2ZUyi9A1uBFTRpGxxaaMtrFwbwBpRytHefSWZ \
+--known-validator FLVgaCPvSGFguumN9ao188izB4K4rxSWzkHneQMtkwQJ \
+--known-validator qZMH9GWnnBkx7aM1h98iKSv2Lz5N78nwNSocAxDQrbP \
+--known-validator GiYSnFRrXrmkJMC54A1j3K4xT6ZMfx1NSThEe5X2WpDe \
+--known-validator LA1NEzryoih6CQW3gwQqJQffK2mKgnXcjSQZSRpM3wc \
+--known-validator Certusm1sa411sMpV9FPqU5dXAYhmmhygvxJ23S6hJ24 \
+--known-validator 9bkyxgYxRrysC1ijd6iByp9idn112CnYTw243fdH2Uvr \
+--entrypoint entrypoint.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint2.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint4.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
+--identity /root/solana/validator-keypair.json \
+--vote-account /root/solana/vote-account-keypair.json \
+--ledger /root/solana/ledger \
+--limit-ledger-size 50000000 \
+--accounts-db-caching-enabled \
+--dynamic-port-range 8001-8020 \
+--gossip-port 8001 \
+--no-port-check \
+--rpc-port 8899 \
+--rpc-bind-address 127.0.0.1 \
+--private-rpc \
+--only-known-rpc\
+--full-snapshot-interval-slots 30000 \
+--incremental-snapshot-interval-slots 500 \
+--maximum-full-snapshots-to-retain 1 \
+--maximum-incremental-snapshots-to-retain 2 \
+--maximum-local-snapshot-age 1500 \
+--wal-recovery-mode skip_any_corrupted_record \
+--snapshot-compression none \
+--expected-genesis-hash $EXPECTED_GENESIS_HASH \
+--no-os-network-limits-test \
+--wait-for-supermajority 135986379 \
+--no-snapshot-fetch \
+--no-genesis-fetch \
+--expected-bank-hash DfRg2DQzWVQjRTBSXwTaYgHDPZbQ85ebLrfayJmMENtp \
+--log /root/solana/solana.log
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+```
