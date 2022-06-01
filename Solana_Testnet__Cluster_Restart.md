@@ -61,7 +61,11 @@ tail -f ~/solana/solana.log | grep 'Waiting for'
 ```
 
 MAINNET
-
+```bash
+sudo su
+rm /etc/systemd/system/solana.service
+nano /etc/systemd/system/solana.service
+```
 
 ```bash
 [Unit]
