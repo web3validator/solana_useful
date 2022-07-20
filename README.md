@@ -20,6 +20,7 @@ source ~/.bashrc
 sudo su
 solana -V
 tail -f $HOME/solana/solana.log | awk -v pattern="`solana address`.+within slot" '$0 ~ pattern {printf "%d hr. %d min. %d sec.\n", ($18-$12)*0.459/3600, ($18-$12)*0.459/60-int((($18-$12)*0.459/3600))*60, ($18-$12)*0.459-int((($18-$12)*0.459/3600))*3600-int((($18-$12)*0.459/60))*60}'
+
 ```
 # Easy UPDATE
 firstly check when your block >>
