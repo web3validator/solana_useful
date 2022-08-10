@@ -9,6 +9,13 @@ rm /etc/systemd/system/solana.service
 nano /etc/systemd/system/solana.service
 ```
 
+```bash
+sudo su
+cd ~/solana/
+systemctl stop solana
+cat solana.log  | grep 'optimistic_slot slot=' | tail -n1000 | cut -d "=" -f2 | tr -d i | sort -n | tail -n1
+```
+  
 #Copy and paste the following service text
 
 
