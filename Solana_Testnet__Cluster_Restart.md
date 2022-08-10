@@ -81,6 +81,7 @@ tail -f ~/solana/solana.log | grep 'Waiting for'
 
 ```bash
 sudo su
+rm -rf ~/solana/ledger
 rm /etc/systemd/system/solana.service
 nano /etc/systemd/system/solana.service
 ```
