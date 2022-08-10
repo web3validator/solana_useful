@@ -45,6 +45,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
 --wait-for-supermajority 144871251 \
 --no-genesis-fetch \
+--no-snapshot-fetch \
 --expected-bank-hash 4NstanApNPjCAd2HwBhHokqCQbJfCAYgp92VvJibSM5M \
 --wal-recovery-mode skip_any_corrupted_record \
 --identity /root/solana/validator-keypair.json \
