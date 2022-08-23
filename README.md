@@ -183,11 +183,12 @@ WantedBy=multi-user.target
 ```bash
 systemctl daemon-reload
 
-
 systemctl enable solana
 
-
 systemctl restart solana
+```
+```bash
+tail -f ~/solana/solana.log
 ```
 
 # MAINNET service
