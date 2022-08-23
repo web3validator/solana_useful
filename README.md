@@ -180,6 +180,16 @@ ExecStop=/bin/kill -s QUIT $MAINPID
 WantedBy=multi-user.target
 ```
 
+```bash
+systemctl daemon-reload
+
+
+systemctl enable solana
+
+
+systemctl restart solana
+```
+
 # MAINNET service
 
 ```bash
@@ -275,15 +285,7 @@ solana config set --url https://api.testnet.solana.com --keypair ~/solana/valida
 solana config set --url https://api.mainnet-beta.solana.com --keypair ~/solana/validator-keypair.json
 ```
 ========
-```bash
-systemctl daemon-reload
 
-
-systemctl enable solana
-
-
-systemctl restart solana
-```
 ```bash
  solana-validator --ledger /root/ledger wait-for-restart-window && systemctl restart solana
 ```
