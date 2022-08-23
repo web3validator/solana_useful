@@ -341,6 +341,9 @@ mount /mnt/ramdisk
 ``` 
 #add to solana.service
 ```bash
+nano /etc/systemd/system/solana.service
+``` 
+```bash
 --accounts /mnt/ramdisk/accounts
 ``` 
 # ufw
