@@ -26,7 +26,7 @@ tail -f $HOME/solana/solana.log | awk -v pattern="`solana address`.+within slot"
 firstly check when your block >>
 ```bash
 sudo su
-solana-install init 1.11.10
+solana-install init 1.14.1
 systemctl restart solana 
 solana catchup ~/solana/validator-keypair.json --our-localhost
 ```
