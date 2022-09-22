@@ -168,7 +168,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --vote-account /root/solana/vote-account-keypair.json \
 --ledger /root/solana/ledger \
 --snapshot-compression none \
---incremental-snapshots \
 --full-snapshot-interval-slots 30000 \
 --incremental-snapshot-interval-slots 500 \
 --maximum-full-snapshots-to-retain 1 \
