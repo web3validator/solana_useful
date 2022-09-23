@@ -40,7 +40,7 @@ solana catchup ~/solana/validator-keypair.json --our-localhost
 Check catchup
 
 ```bash
-solana catchup ~/solana/validator-keypair.json --our-localhost
+solana catchup --our-localhost
 ```
 
 ```bash
@@ -140,6 +140,15 @@ systemctl daemon-reload
 systemctl start sstd
 systemctl enable sstd
 ```
+==================================
+
+```bash
+solana config set --url https://api.testnet.solana.com --keypair ~/solana/validator-keypair.json
+```
+```bash
+solana config set --url https://api.mainnet-beta.solana.com --keypair ~/solana/validator-keypair.json
+```
+=================================
 # Testnet service
 
 ```bash
@@ -287,17 +296,6 @@ nano /etc/logrotate.d/solana.logrotate
 }
 ```
 
-
-
-=======================================
-
-```bash
-solana config set --url https://api.testnet.solana.com --keypair ~/solana/validator-keypair.json
-```
-```bash
-solana config set --url https://api.mainnet-beta.solana.com --keypair ~/solana/validator-keypair.json
-```
-========
 
 ```bash
  solana-validator --ledger /root/ledger wait-for-restart-window && systemctl restart solana
