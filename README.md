@@ -361,6 +361,7 @@ nano /etc/systemd/system/solana.service
           Ufw
 ###########################
 ```bash
+sudo apt install ufw -y
 ufw allow 22
 ufw allow 8000/tcp
 ufw allow 8899/tcp
