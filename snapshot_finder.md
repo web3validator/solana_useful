@@ -74,7 +74,6 @@ tail -f ~/solana/solana.log
 TdS  
 ```python
 python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger -r http://api.testnet.solana.com
-exit
 sudo su
 systemctl restart solana
 tail -f ~/solana/solana.log
