@@ -68,6 +68,12 @@ sudo su
 systemctl restart solana
 tail -f ~/solana/solana.log
 ``` 
+```python
+python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger
+sudo su
+systemctl restart solana
+tail -f ~/solana/solana.log
+``` 
 `$HOME/solana/ledger/` - path to your `validator-ledger`
 
 
