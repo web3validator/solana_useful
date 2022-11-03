@@ -5,7 +5,7 @@ systemctl stop solana
 solana-install init v1.14.7
 rm -rf /root/solana/ledger/
 mkdir /root/solana/ledger/
-wget --trust-server-names http://194.126.172.246:8899/snapshot.tar.bz2 -P /root/solana/validator-ledger
+wget --trust-server-names http://194.126.172.246:8899/snapshot.tar.bz2 -P /root/solana/ledger
 ```
   
   
