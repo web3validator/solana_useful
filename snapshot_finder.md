@@ -18,7 +18,7 @@ sudo apt-get update \
 Start script  
 Mainnet  
 ```python
-python3 snapshot-finder.py --snapshot_path /mnt/ledger
+python3 snapshot-finder.py --snapshot_path /ledger
 sudo su
 systemctl restart solana
 tail -f ~/solana/solana.log
