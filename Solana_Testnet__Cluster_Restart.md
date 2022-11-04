@@ -10,7 +10,6 @@ wget --trust-server-names http://194.126.172.246:8899/snapshot.tar.bz2
 wget http://69.197.49.5:8899/snapshot-160991176-34QhWFp6afjFWmviBqaAiLbk62w75r18UB6qYqfZ7Wjt.tar.zst
 wget https://www.shinobi-systems.com/testnet-snapshot-160991176/snapshot-160991176-34QhWFp6afjFWmviBqaAiLbk62w75r18UB6qYqfZ7Wjt.tar.zst
 wget http://api.testnet.solana.com/genesis.tar.bz2
-tar -xzf genesis.tar.bz2
 ```
   
   
