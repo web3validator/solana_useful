@@ -40,12 +40,11 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --entrypoint entrypoint.testnet.solana.com:8001 \
 --entrypoint entrypoint2.testnet.solana.com:8001 \
 --entrypoint entrypoint3.testnet.solana.com:8001 \
---expected-bank-hash 8EuZtx8JvEjtjByCYxxdpSsDu23WhYqN5LVrSRUurKLA \
+--expected-bank-hash XvCZcHax1PJnfNj5TnzkqU6ksqU4tZUpcwYGi7fbKGi \
 --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
---known-validator 141vSYKGRPNGieSrGJy8EeDVBcbjSr6aWkimNgrNZ6xN \
 --known-validator FnpP7TK6F2hZFVnqSUJagZefwRJ4fmnb1StS1NokpLZM \
---known-validator BFquPCAYdjN9QyLVfuGrQdJTF9Ct7Z85FDxhFeLcpFqR \
---known-validator AJLWyfaLmio6Gm8GA76mdfUtuLT4tmyZsLhbpXsndNab \
+--known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
+--known-validator 4rVaXrd7BLSFZMSm4Lq63nxkVyezGxsQVpUhc9LqbxVk \
 --no-snapshot-fetch \
 --only-known-rpc \
 --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
