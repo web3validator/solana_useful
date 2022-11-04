@@ -5,6 +5,7 @@ systemctl stop solana
 solana-install init v1.14.7
 rm -rf /root/solana/ledger/
 mkdir /root/solana/ledger/
+cd /root/solana/ledger/
 wget --trust-server-names http://194.126.172.246:8899/snapshot.tar.bz2
 wget http://69.197.49.5:8899/snapshot-160991176-34QhWFp6afjFWmviBqaAiLbk62w75r18UB6qYqfZ7Wjt.tar.zst
 wget https://www.shinobi-systems.com/testnet-snapshot-160991176/snapshot-160991176-34QhWFp6afjFWmviBqaAiLbk62w75r18UB6qYqfZ7Wjt.tar.zst
