@@ -6,8 +6,9 @@ solana-install init v1.14.7
 rm -rf /root/solana/ledger/
 mkdir /root/solana/ledger/
 cd /root/solana/ledger/
+wget https://www.shinobi-systems.com/snapshots/snapshot-160991176-5GMY4MtGzDnXYq9AVssRBxVyRj6YVRMjxfjZtqVBeP97.tar.zst
 wget --trust-server-names http://194.126.172.246:8899/snapshot.tar.bz2
-wget https://www.shinobi-systems.com/testnet-snapshot-160991176/snapshot-160991176-34QhWFp6afjFWmviBqaAiLbk62w75r18UB6qYqfZ7Wjt.tar.zst
+wget http://tsolv.im-0.net:13899/snapshot-160991176-5GMY4MtGzDnXYq9AVssRBxVyRj6YVRMjxfjZtqVBeP97.tar.zst
 wget http://api.testnet.solana.com/genesis.tar.bz2
 ```
   
