@@ -36,15 +36,14 @@ Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=tds,u
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
 --wait-for-supermajority 160991176 \
 --expected-shred-version 8135 \
---entrypoint entrypoint.testnet.solana.sergo.dev:8001 \
 --entrypoint entrypoint.testnet.solana.com:8001 \
 --entrypoint entrypoint2.testnet.solana.com:8001 \
 --entrypoint entrypoint3.testnet.solana.com:8001 \
---expected-bank-hash XvCZcHax1PJnfNj5TnzkqU6ksqU4tZUpcwYGi7fbKGi \
+--expected-bank-hash GfNNxK4wS51NDWos2DQoLKU2ECiMEbFMPRw7bpDi9BoY \
 --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
+--known-validator 9v7E6oEm1V86hjTubtBon7cRYPvQriWZKHZEX6j92Po4 \
 --known-validator FnpP7TK6F2hZFVnqSUJagZefwRJ4fmnb1StS1NokpLZM \
---known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
---known-validator 4rVaXrd7BLSFZMSm4Lq63nxkVyezGxsQVpUhc9LqbxVk \
+--known-validator J7v9ndmcoBuo9to2MnHegLnBkC9x3SAVbQBJo5MMJrN1 \
 --no-snapshot-fetch \
 --only-known-rpc \
 --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
