@@ -7,8 +7,6 @@ rm -rf /root/solana/ledger/
 mkdir /root/solana/ledger/
 cd /root/solana/ledger/
 wget https://www.shinobi-systems.com/snapshots/snapshot-160991176-5GMY4MtGzDnXYq9AVssRBxVyRj6YVRMjxfjZtqVBeP97.tar.zst
-wget --trust-server-names http://194.126.172.246:8899/snapshot.tar.bz2
-wget http://tsolv.im-0.net:13899/snapshot-160991176-5GMY4MtGzDnXYq9AVssRBxVyRj6YVRMjxfjZtqVBeP97.tar.zst
 wget http://api.testnet.solana.com/genesis.tar.bz2
 ```
   
