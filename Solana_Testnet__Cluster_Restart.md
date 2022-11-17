@@ -6,7 +6,7 @@ solana-install init v1.14.7
 rm -rf /root/solana/ledger/
 mkdir /root/solana/ledger/
 cd /root/solana/ledger/
-wget https://www.shinobi-systems.com/snapshots/snapshot-160991176-5GMY4MtGzDnXYq9AVssRBxVyRj6YVRMjxfjZtqVBeP97.tar.zst
+wget --trust-server-names http://194.126.172.246:8899/snapshot.tar.bz2
 wget http://api.testnet.solana.com/genesis.tar.bz2
 ```
   
@@ -33,19 +33,23 @@ RestartSec=1
 LimitNOFILE=1000000
 Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
---wait-for-supermajority 160991176 \
---expected-shred-version 4711 \
+--wait-for-supermajority 161660256 \
+--expected-shred-version 6995 \
+--entrypoint entrypoint.testnet.solana.sergo.dev:8001 \
+--entrypoint tsolv.im-0.net:8000 \
 --entrypoint entrypoint.testnet.solana.com:8001 \
 --entrypoint entrypoint2.testnet.solana.com:8001 \
 --entrypoint entrypoint3.testnet.solana.com:8001 \
---expected-bank-hash GfNNxK4wS51NDWos2DQoLKU2ECiMEbFMPRw7bpDi9BoY \
+--expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
+--expected-bank-hash GjU2DYkVVcd4LD3Yew1xSL8XibvVnhVse2U6b5JdNDhN \
 --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
---known-validator 9v7E6oEm1V86hjTubtBon7cRYPvQriWZKHZEX6j92Po4 \
+--known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
+--known-validator td2GGWDsCJ6LvjN89oLJvmrDwE14neNrbqQ9s3tVkPy \
+--known-validator td3n5NGhP7JKWrL638gzau3NY7mF4K3ztZww3GkpywJ  \
 --known-validator FnpP7TK6F2hZFVnqSUJagZefwRJ4fmnb1StS1NokpLZM \
---known-validator J7v9ndmcoBuo9to2MnHegLnBkC9x3SAVbQBJo5MMJrN1 \
+--known-validator BFquPCAYdjN9QyLVfuGrQdJTF9Ct7Z85FDxhFeLcpFqR \
 --no-snapshot-fetch \
 --only-known-rpc \
---expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
 --wal-recovery-mode skip_any_corrupted_record \
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
