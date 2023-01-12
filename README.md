@@ -321,7 +321,7 @@ solana vote-authorize-withdrawer "/root/solana/vote-account-keypair.json" "/root
 ```
 ====================
 ```bash
-solana vote-update-commission ~/solana/vote-account-keypair.json 10 ~/solana/validator-keypair.json
+solana vote-update-commission ~/solana/vote-account-keypair.json 10 w.json
 ```
 =============
 
