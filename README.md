@@ -33,7 +33,7 @@ systemctl restart solana
 firstly check when your block >>
 ```bash
 sudo su
-solana-install init 1.14.10
+solana-install init 1.14.12
 systemctl restart solana 
 solana catchup ~/solana/validator-keypair.json --our-localhost
 ```
