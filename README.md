@@ -303,10 +303,8 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
 --entrypoint entrypoint4.mainnet-beta.solana.com:8001 \
 --entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
---identity /root/solana/new-validator-keypair.json \
+--identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
---authorized-voter /root/solana/validator-keypair.json \
---authorized-voter /root/solana/new-validator-keypair.json \
 --known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
 --known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
 --known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
