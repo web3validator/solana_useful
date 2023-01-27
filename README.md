@@ -326,7 +326,50 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 [Install]
 WantedBy=multi-user.target
 ```
+# HEtzner
+```bash
+[Unit]
+Description=Solana Validator
+After=network.target
+StartLimitIntervalSec=0
 
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+LimitNOFILE=2048000
+Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password"
+ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
+--dynamic-port-range 8000-8020 \
+--entrypoint 54.194.185.141:11000 \
+--entrypoint 107.6.91.44:21610 \
+--identity /root/solana/new-validator-keypair.json \
+--vote-account /root/solana/vote-account-keypair.json \
+--authorized-voter /root/solana/validator-keypair.json \
+--authorized-voter /root/solana/new-validator-keypair.json \
+--known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
+--known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
+--known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \ 
+--known-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
+--expected-genesis-hash 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d \
+--gossip-port 11000 \
+--rpc-port 8899 \
+--log /root/solana/solana.log \
+--private-rpc \
+--rpc-bind-address 127.0.0.1 \
+--ledger /root/solana/validator-ledger \
+--limit-ledger-size 50000000 \
+--wal-recovery-mode skip_any_corrupted_record \
+--maximum-local-snapshot-age 5000 \
+--snapshot-interval-slots 500 \
+--no-port-check \
+--no-poh-speed-test \
+--skip-poh-verify
+
+[Install]
+WantedBy=multi-user.target
+```
 ```bash
 nano /etc/logrotate.d/solana.logrotate
 ```
