@@ -358,7 +358,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --log /root/solana/solana.log \
 --private-rpc \
 --rpc-bind-address 127.0.0.1 \
---ledger /root/solana/validator-ledger \
+--ledger /root/solana/ledger \
 --limit-ledger-size 50000000 \
 --wal-recovery-mode skip_any_corrupted_record \
 --maximum-local-snapshot-age 5000 \
