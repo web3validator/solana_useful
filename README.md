@@ -39,6 +39,9 @@ solana catchup ~/solana/validator-keypair.json --our-localhost
 ```
 # Jito Upgrading 
 ```bash
+export TAG=v1.14.16-jito # tag
+```
+```bash
 cd jito-solana
 git pull
 git checkout tags/$TAG
