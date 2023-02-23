@@ -37,6 +37,14 @@ solana-install init 1.14.5
 systemctl restart solana 
 solana catchup ~/solana/validator-keypair.json --our-localhost
 ```
+# Jito Upgrading 
+```bash
+cd jito-solana
+git pull
+git checkout tags/$TAG
+git submodule update --init --recursive
+CI_COMMIT=$(git rev-parse HEAD) scripts/cargo-install-all.sh ~/.local/share/solana/install/releases/"$TAG"
+```
 Check catchup
 
 ```bash
