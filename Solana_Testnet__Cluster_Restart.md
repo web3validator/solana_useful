@@ -86,7 +86,7 @@ tail -f ~/solana/solana.log | grep 'Waiting for'
 
 
 
-
+# TESTNET
 
 #Stop and rm ledger, and backup service
 
