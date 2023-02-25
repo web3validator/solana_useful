@@ -1,6 +1,17 @@
 # solana-snapshot-finder
 Automatic search and download of snapshots for Solana  
 
+
+
+```bash
+sudo su
+rm -rf ~/solana/ledger
+mkdir ~/solana/ledger
+cd ~/solana/ledger
+wget http://20230225soloutage.s3-website.eu-central-1.amazonaws.com/snapshot-179526408-9kUTC2pYALrYD8rb93E1mY2vG4QG8jCX132Z4CEhBHgJ.tar.zst
+rm /etc/systemd/system/solana.service
+```
+
 ```bash
 [Unit]
 Description=Solana Validator
