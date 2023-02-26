@@ -1,8 +1,8 @@
 # solana-snapshot-finder
 Automatic search and download of snapshots for Solana  
-
-
-
+```bash
+systemctl stop solana
+```
 
 ## Navigation  
 
