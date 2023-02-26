@@ -9,6 +9,8 @@ Automatic search and download of snapshots for Solana
   
 Install requirements  
 ```bash
+rm -rf solana-snapshot-finder
+
 sudo apt-get update \
 && sudo apt-get install python3-venv git -y \
 && git clone https://github.com/c29r3/solana-snapshot-finder.git \
@@ -20,12 +22,7 @@ sudo apt-get update \
 
 Start script  
 Mainnet  
-```python
-python3 snapshot-finder.py --snapshot_path /ledger
-sudo su
-systemctl restart solana
-tail -f ~/solana/solana.log
-``` 
+
 ```python
 python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger
 sudo su
