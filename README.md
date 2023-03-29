@@ -230,6 +230,9 @@ sudo su
 rm /etc/systemd/system/solana.service
 nano /etc/systemd/system/solana.service
 ```
+
+
+
 ```bash
 [Unit]
 Description=Solana Validator
@@ -242,13 +245,9 @@ Restart=always
 RestartSec=1
 User=root
 LimitNOFILE=2048000
-Environment="SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password""
-Environment="EXPECTED_GENESIS_HASH=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d"
+Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password"
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
---known-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
---known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
---known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
---known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
+--dynamic-port-range 8000-8020 \
 --entrypoint entrypoint.mainnet-beta.solana.com:8001 \
 --entrypoint entrypoint2.mainnet-beta.solana.com:8001 \
 --entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
@@ -256,29 +255,24 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
+--known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
+--known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
+--known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
+--known-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
+--expected-genesis-hash 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d \
+--gossip-port 8001 \
+--rpc-port 8899 \
+--log /root/solana/solana.log \
+--private-rpc \
+--rpc-bind-address 127.0.0.1 \
 --ledger /root/solana/ledger \
 --limit-ledger-size 50000000 \
---accounts-db-caching-enabled \
---dynamic-port-range 8001-8020 \
---gossip-port 8001 \
---no-port-check \
---rpc-port 8899 \
---rpc-bind-address 127.0.0.1 \
---private-rpc \
---only-known-rpc\
---full-snapshot-interval-slots 30000 \
---incremental-snapshot-interval-slots 500 \
---maximum-full-snapshots-to-retain 1 \
---maximum-incremental-snapshots-to-retain 2 \
---maximum-local-snapshot-age 1500 \
 --wal-recovery-mode skip_any_corrupted_record \
---snapshot-compression none \
---expected-genesis-hash $EXPECTED_GENESIS_HASH \
---no-os-network-limits-test \
---log /root/solana/solana.log
-ExecReload=/bin/kill -s HUP $MAINPID
-ExecStop=/bin/kill -s QUIT $MAINPID
-
+--maximum-local-snapshot-age 5000 \
+--snapshot-interval-slots 500 \
+--no-port-check \
+--no-poh-speed-test \
+--skip-poh-verify
 [Install]
 WantedBy=multi-user.target
 ```
@@ -292,94 +286,6 @@ systemctl restart solana
 ```
 
 =============================
-
-
-```bash
-[Unit]
-Description=Solana Validator
-After=network.target
-StartLimitIntervalSec=0
-
-[Service]
-Type=simple
-Restart=always
-RestartSec=1
-User=root
-LimitNOFILE=2048000
-Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password"
-ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
---dynamic-port-range 8000-8020 \
---entrypoint entrypoint.mainnet-beta.solana.com:8001 \
---entrypoint entrypoint2.mainnet-beta.solana.com:8001 \
---entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
---entrypoint entrypoint4.mainnet-beta.solana.com:8001 \
---entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
---identity /root/solana/validator-keypair.json \
---vote-account /root/solana/vote-account-keypair.json \
---known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
---known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
---known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
---known-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
---expected-genesis-hash 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d \
---gossip-port 8001 \
---rpc-port 8899 \
---log /root/solana/solana.log \
---private-rpc \
---rpc-bind-address 127.0.0.1 \
---ledger /root/solana/ledger \
---limit-ledger-size 50000000 \
---wal-recovery-mode skip_any_corrupted_record \
---maximum-local-snapshot-age 5000 \
---snapshot-interval-slots 500 \
---no-port-check \
---no-poh-speed-test \
---skip-poh-verify
-[Install]
-WantedBy=multi-user.target
-```
-# HEtzner
-```bash
-[Unit]
-Description=Solana Validator
-After=network.target
-StartLimitIntervalSec=0
-
-[Service]
-Type=simple
-Restart=always
-RestartSec=1
-User=root
-LimitNOFILE=2048000
-Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password"
-ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
---dynamic-port-range 8000-8020 \
---entrypoint 54.194.185.141:11000 \
---entrypoint 107.6.91.44:21610 \
---identity /root/solana/new-validator-keypair.json \
---vote-account /root/solana/vote-account-keypair.json \
---authorized-voter /root/solana/validator-keypair.json \
---authorized-voter /root/solana/new-validator-keypair.json \
---known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
---known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
---known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
---known-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
---expected-genesis-hash 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d \
---gossip-port 11000 \
---rpc-port 8899 \
---log /root/solana/solana.log \
---private-rpc \
---rpc-bind-address 127.0.0.1 \
---ledger /root/solana/ledger \
---limit-ledger-size 50000000 \
---wal-recovery-mode skip_any_corrupted_record \
---maximum-local-snapshot-age 5000 \
---snapshot-interval-slots 500 \
---no-port-check \
---no-poh-speed-test \
---skip-poh-verify
-
-[Install]
-WantedBy=multi-user.target
 ```
 ```bash
 nano /etc/logrotate.d/solana.logrotate
