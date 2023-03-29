@@ -287,6 +287,7 @@ systemctl restart solana
 
 =============================
 ```
+
 ```bash
 nano /etc/logrotate.d/solana.logrotate
 ```
