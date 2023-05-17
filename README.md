@@ -374,6 +374,7 @@ ufw allow 8899/tcp
 ufw allow 8900/tcp
 ufw allow 8000:8020/tcp
 ufw allow 8000:8020/udp
+ufw allow 53
 
 ufw deny out from any to 10.0.0.0/8
 ufw deny out from any to 172.16.0.0/12
