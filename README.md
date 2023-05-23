@@ -339,7 +339,7 @@ ramdisk
 # swap
 swapon --show
 
-nano /swap.img
+touch /swap.img
 
 ```bash
 fallocate -l 128G /swap.img && mkswap /swap.img && swapon /swap.img
