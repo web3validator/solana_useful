@@ -338,10 +338,12 @@ ramdisk
 -====
 # swap
 swapon --show
+
 nano /swap.img
 
+```bash
 fallocate -l 128G /swap.img && mkswap /swap.img && swapon /swap.img
-
+```
 swapon --show
 
 echo '/swap.img none swap sw 0 0' >> /etc/fstab
