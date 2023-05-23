@@ -347,7 +347,9 @@ fallocate -l 128G /swap.img && mkswap /swap.img && swapon /swap.img
 swapon --show
 
 echo '/swap.img none swap sw 0 0' >> /etc/fstab
-
+```bash
+chmod 0600 /swap.img
+```
 #create swapfile
 ```bash
 swapoff -a
