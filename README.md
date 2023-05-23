@@ -336,20 +336,25 @@ solana vote-update-commission ~/solana/vote-account-keypair.json 10 w.json
 =======
 ramdisk
 -====
+
+###########################
+          swap
+###########################
+
 # swap
 swapon --show
 
 touch /swap.img
-
+```bash
+chmod 0600 /swap.img
+```
 ```bash
 fallocate -l 128G /swap.img && mkswap /swap.img && swapon /swap.img
 ```
 swapon --show
 
 echo '/swap.img none swap sw 0 0' >> /etc/fstab
-```bash
-chmod 0600 /swap.img
-```
+
 #create swapfile
 ```bash
 swapoff -a
@@ -377,7 +382,7 @@ nano /etc/systemd/system/solana.service
 --accounts /mnt/ramdisk/accounts
 ``` 
 # ufw
-#####################################
+###########################
           Ufw
 ###########################
 ```bash
@@ -388,34 +393,17 @@ ufw allow 8900/tcp
 ufw allow 8000:8020/tcp
 ufw allow 8000:8020/udp
 ufw allow 53
-
+```
+hetzner local tr
+```bash
 ufw deny out from any to 10.0.0.0/8
 ufw deny out from any to 172.16.0.0/12
 ufw deny out from any to 192.168.0.0/16
 ufw deny out from any to 100.64.0.0/10
 ufw deny out from any to 198.18.0.0/15
 ufw deny out from any to 169.254.0.0/16
-
-ufw enable
 ```
 
-testnet use also
-
-```bash
-ufw deny proto udp from 65.21.235.66 to any && \
-ufw deny proto udp from 94.181.44.170 to any && \
-ufw deny proto udp from 141.95.145.179 to any && \
-ufw deny proto udp from 198.244.202.108 to any && \
-ufw deny proto udp from 45.10.26.12 to any && \
-ufw deny proto udp from 162.55.135.186 to any && \
-ufw deny proto udp from 146.59.54.127 to any && \
-ufw deny proto udp from 5.45.72.79 to any && \
-ufw deny proto udp from 68.168.220.110 to any && \
-ufw deny proto udp from 5.45.73.111 to any && \
-ufw deny proto udp from 141.94.248.167 to any && \
-ufw deny proto udp from 5.61.53.201 to any
-ufw enable
-```
 ```bash
 ufw status
 ```
