@@ -80,7 +80,7 @@ sudo sysctl -p /etc/sysctl.d/20-solana-mmaps.conf
 
 sudo bash -c "cat >/etc/security/limits.d/90-solana-nofiles.conf <<EOF
 # Increase process file descriptor count limit
-* - nofile 700000
+* - nofile 1000000
 EOF"
 ```
 # mitigate the vulnerability
