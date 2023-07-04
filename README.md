@@ -67,7 +67,7 @@ EOF"
 
 sudo sysctl -p /etc/sysctl.d/21-solana-validator.conf
 
-sudo bash -c "cat >/etc/security/limits.d/20-solana-nofiles.conf <<EOF
+sudo bash -c "cat >/etc/security/limits.d/20-solana-mmaps.conf <<EOF
 # Increase process file descriptor count limit
 * - nofile 1000000
 EOF"
