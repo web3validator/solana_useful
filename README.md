@@ -48,7 +48,7 @@ git checkout tags/$TAG
 git submodule update --init --recursive
 CI_COMMIT=$(git rev-parse HEAD) scripts/cargo-install-all.sh ~/.local/share/solana/install/releases/"$TAG"
 ```
-
+# increase nofile
 ```bash
 sudo bash -c "cat >/etc/sysctl.d/21-solana-validator.conf <<EOF
 # Increase UDP buffer sizes
