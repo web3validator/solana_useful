@@ -49,7 +49,6 @@ git submodule update --init --recursive
 CI_COMMIT=$(git rev-parse HEAD) scripts/cargo-install-all.sh ~/.local/share/solana/install/releases/"$TAG"
 ```
 
-
 ```bash
 sudo bash -c "cat >/etc/sysctl.d/21-solana-validator.conf <<EOF
 # Increase UDP buffer sizes
@@ -65,20 +64,18 @@ vm.max_map_count = 1000000
 fs.nr_open = 1000000
 EOF"
 
-sudo sysctl -p /etc/sysctl.d/21-solana-validator.conf
-
-sudo bash -c "cat >/etc/security/limits.d/20-solana-mmaps.conf <<EOF
-# Increase process file descriptor count limit
-* - nofile 1000000
+# Increase number of allowed open file descriptors
+fs.nr_open = 1000000
 EOF"
 
-sudo sysctl -p /etc/sysctl.d/20-solana-mmaps.conf
+sudo sysctl -p /etc/sysctl.d/21-solana-validator.conf
 
 sudo bash -c "cat >/etc/security/limits.d/90-solana-nofiles.conf <<EOF
 # Increase process file descriptor count limit
 * - nofile 1000000
 EOF"
 ```
+
 # mitigate the vulnerability
 Fortunately, to mitigate the vulnerability is very easy. You do not need to stop any services or restart the computers. You just need to issue two commands on the node and gateway computers.
 ```bash
