@@ -64,10 +64,6 @@ vm.max_map_count = 1000000
 fs.nr_open = 1000000
 EOF"
 
-# Increase number of allowed open file descriptors
-fs.nr_open = 1000000
-EOF"
-
 sudo sysctl -p /etc/sysctl.d/21-solana-validator.conf
 
 sudo bash -c "cat >/etc/security/limits.d/90-solana-nofiles.conf <<EOF
