@@ -331,19 +331,29 @@ ramdisk
 ###########################
 
 # swap
+```bash
 swapon --show
+```
+=(
 
+```bash
 touch /swap.img
+```
+
 ```bash
 chmod 0600 /swap.img
 ```
 ```bash
 fallocate -l 128G /swap.img && mkswap /swap.img && swapon /swap.img
 ```
+```bash
 swapon --show
+```
+=)
 
+```bash
 echo '/swap.img none swap sw 0 0' >> /etc/fstab
-
+```
 #create swapfile
 ```bash
 swapoff -a
