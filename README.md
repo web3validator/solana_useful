@@ -354,7 +354,9 @@ swapon --show
 ```bash
 echo '/swap.img none swap sw 0 0' >> /etc/fstab
 ```
-#create swapfile
+# Ramdisk
+
+create swapfile
 ```bash
 swapoff -a
 dd if=/dev/zero of=/swapfile bs=1G count=128
