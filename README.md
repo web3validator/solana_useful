@@ -307,7 +307,7 @@ solana catchup ~/solana/validator-keypair.json --our-localhost
 ==========
 
 ```bash
-solana validator-info publish "YourName" -n keybaseUsername -w "https://yoursite.com" -d "Blocks must go on"
+solana validator-info publish "web34ever" -w "https://web3validator.info" -i "https://prnt.sc/5ihpwIyeMhjy" -d "Crypto is going mainstream. We help you go upstream" -k validator-keypair.json
 ```
 =
 change vote author withdrawer
