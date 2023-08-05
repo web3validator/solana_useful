@@ -42,6 +42,8 @@ solana catchup ~/solana/validator-keypair.json --our-localhost
 ```
 apt install screen -y
 screen -S halt
+```
+```
 wget https://raw.githubusercontent.com/web3validator/solana_useful/main/halt_validator_at_epoch.sh
 chmod +x halt_validator_at_epoch.sh
 ./halt_validator_at_epoch.sh 508
