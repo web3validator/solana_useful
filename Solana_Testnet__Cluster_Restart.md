@@ -1,10 +1,9 @@
 
 # Mainnet
-
-
-```bash
-sudo su
+```
 solana-install init v1.14.23
+```
+```bash
 solana-ledger-tool --ledger /root/solana/ledger create-snapshot \
 --snapshot-archive-path  /root/solana/ledger/snapshot \
 --hard-fork 213932255 \
