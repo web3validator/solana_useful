@@ -41,6 +41,7 @@ SVn36yVApPLYsa8koK3qUcy14zXDnqkNYWyUh1f4oK1  \
 rm /etc/systemd/system/solana.service
 nano /etc/systemd/system/solana.service
 ```
+```
 [Unit]
 Description=Solana Node
 After=network.target syslog.target
