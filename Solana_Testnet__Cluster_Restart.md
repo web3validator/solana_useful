@@ -5,67 +5,37 @@
 ```bash
 sudo su
 solana-install init v1.14.23
-solana-ledger-tool --ledger <ledger-path> create-snapshot \
-
---snapshot-archive-path  /root/solana/ledger \
-
+solana-ledger-tool --ledger /root/solana/ledger create-snapshot \
+--snapshot-archive-path  /root/solana/ledger/snapshot \
 --hard-fork 213932255 \
-
 --remove-account \
-
 3NKRSwpySNwD3TvP5pHnRmkAQRsdkXWRr1WaQh8p4PWX \
-
 3uFHb9oKdGfgZGJK9EHaAXN4USvnQtAFC13Fh5gGFS5B \
-
 5GpmAKxaGsWWbPp4bNXFLJxZVvG92ctxf7jQnzTQjF3n \
-
 5Pecy6ie6XGm22pc9d4P9W5c31BugcFBuy6hsP2zkETv \
-
 7Vced912WrRnfjaiKRiNBcbuFw7RrnLv3E3z95Y4GTNc \
-
 7rcw5UtqgDTBBv2EcynNfYckgdAaH1MAsCjKgXMkN7Ri \
-
 8199Q2gMD2kwgfopK5qqVWuDbegLgpuFUFHCcUJQDN8b \
-
 86HpNqzutEZwLcPxS6EHDcMNYWk6ikhteg9un7Y2PBKE \
-
 8Zs9W7D9MpSEtUWSQdGniZk2cNmV22y6FLJwCx53asme \
-
 9LZdXeKGeBV6hRLdxS1rHbHoEUsKqesCC2ZAPTPKJAbK \
-
 9gxu85LYRAcZL38We8MYJ4A9AwgBBPtVBAqebMcT1241 \
-
 A16q37opZdQMCbe5qJ6xpBB9usykfv8jZaMkxvZQi4GJ \
-
 CE2et8pqgyQMP2mQRg3CgvX8nJBKUArMu3wfiQiQKY1y \
-
 Cdkc8PPTeTNUPoZEfCY5AyetUrEdkZtNPMgz58nqyaHD \
-
 CveezY6FDLVBToHDcvJRmtMouqzsmj4UXYh5ths5G5Uv \
-
 DdLwVYuvDz26JohmgSbA7mjpJFgX5zP2dkp8qsF2C33V \
-
 EYVpEP7uzH1CoXzbD6PubGhYmnxRXPeq3PPsm1ba3gpo \
-
 EfhYd3SafzGT472tYQDUc4dPd2xdEfKs5fwkowUgVt4W \
-
 Fab5oP3DmsLYCiQZXdjyqT3ukFFPrsmqhXU4WU1AWVVF \
-
 Ff8b1fBeB86q8cjq47ZhsQLgv5EkHu3G1C99zjUfAzrq \
-
 G6vbf1UBok8MWb8m25ex86aoQHeKTzDKzuZADHkShqm6 \
-
 GDH5TVdbTPUpRnXaRyQqiKUa7uZAbZ28Q2N9bhbKoMLm \
-
 GQALDaC48fEhZGWRj9iL5Q889emJKcj3aCvHF7VCbbF4 \
-
 GmuBvtFb2aHfSfMXpuFeWZGHyDeCLPS79s48fmCWCfM5 \
-
 J4HFT8usBxpcF63y46t1upYobJgChmKyZPm5uTBRg25Z \
-
 SVn36yVApPLYsa8koK3qUcy14zXDnqkNYWyUh1f4oK1  \
-
---  213932255 /root/solana/ledger
+--  213932255 /root/solana/ledger/snapshot
 ```
 
 ```bash
