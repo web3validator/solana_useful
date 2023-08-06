@@ -4,7 +4,7 @@
 solana-install init v1.14.23
 ```
 ```bash
-wget --content-disposition http://139.178.68.207:8899/snapshot.tar.bz2 -P /root/solana/snapshots
+wget --content-disposition http://139.178.68.207:8899/snapshot.tar.bz2 -P /root/solana/ledger
 ```
 
 ```bash
