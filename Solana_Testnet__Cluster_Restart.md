@@ -27,14 +27,10 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --entrypoint entrypoint.testnet.solana.com:8001 \
 --entrypoint entrypoint2.testnet.solana.com:8001 \
 --entrypoint entrypoint3.testnet.solana.com:8001 \
---known-validator ALzqkbSgVaQz9nn5xh1BtEsey57otKRyGmaSLhwphYSn \
---known-validator 5oBPhPGrCTHta55o8XybDBNTk4KAdAKgaSZmTDdPFpMH \
---known-validator HvqQDoVtjmDQD13F3FrDypBfpjrBiiGTJYF4MvYE5qQC \
 --known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
---known-validator 7XSY3MrYnK8vq693Rju17bbPkCN3Z7KvvfvJx4kdrsSY \
---known-validator Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN \
---known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
---known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
+--known-validator 9e2RvEzemWs6ZkEhdW2NddSWiFKgJfkw5LWGtgwvPnvw \
+--known-validator 5eiHbh7oTMByatSxoxtgpNfu9hQj8kf1Ltyr83bFsSd9 \
+--known-validator ENCVKduwGMUc3ZfVGZLyuUrwwQiR2YLbsP6y2bitnCV6 \
 --wait-for-supermajority 213932256 \
 --expected-shred-version 61807 \
 --expected-bank-hash 4cyHLxMPCJH4pq9v6eVDFBKKNwrVw8ww78yYUSJNDvjU \
@@ -45,8 +41,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
 --ledger /root/solana/ledger \
---snapshots /root/solana/snapshots \
---accounts /mnt/ramdisk/accounts \
 --limit-ledger-size 50000000 \
 --dynamic-port-range 9050-9070 \
 --log /dev/null \
