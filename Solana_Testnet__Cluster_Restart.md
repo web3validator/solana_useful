@@ -43,7 +43,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --ledger /root/solana/ledger \
 --limit-ledger-size 50000000 \
 --dynamic-port-range 9050-9070 \
---log /dev/null \
+--log /root/solana/solana.log \
 --full-snapshot-interval-slots 25000 \
 --incremental-snapshot-interval-slots 500 \
 --no-port-check \
