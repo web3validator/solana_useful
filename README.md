@@ -203,8 +203,6 @@ ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
 WantedBy=multi-user.target
-[Install]
-WantedBy=multi-user.target
 ```
 
 ```bash
