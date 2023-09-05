@@ -184,9 +184,8 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --known-validator 9e2RvEzemWs6ZkEhdW2NddSWiFKgJfkw5LWGtgwvPnvw \
 --known-validator 5eiHbh7oTMByatSxoxtgpNfu9hQj8kf1Ltyr83bFsSd9 \
 --known-validator ENCVKduwGMUc3ZfVGZLyuUrwwQiR2YLbsP6y2bitnCV6 \
---expected-bank-hash 4cyHLxMPCJH4pq9v6eVDFBKKNwrVw8ww78yYUSJNDvjU \
---only-known-rpc \
 --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
+--only-known-rpc \
 --wal-recovery-mode skip_any_corrupted_record \
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
