@@ -166,41 +166,44 @@ nano /etc/systemd/system/solana.service
 ```
 ```bash
 [Unit]
-Description=Solana TdS node
-After=network.target
+Description=Solana testnet node
+After=network.target syslog.target
 StartLimitIntervalSec=0
 [Service]
 Type=simple
 Restart=always
 RestartSec=1
 LimitNOFILE=2048000
-Environment="SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea""
+Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
---entrypoint entrypoint.testnet.solana.sergo.dev:8001 \
+--entrypoint testnet.solana.margus.one:8001 \
 --entrypoint entrypoint.testnet.solana.com:8001 \
 --entrypoint entrypoint2.testnet.solana.com:8001 \
 --entrypoint entrypoint3.testnet.solana.com:8001 \
 --known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
---known-validator dDzy5SR3AXdYWVqbDEkVFdvSPCtS9ihF5kJkHCtXoFs \
---known-validator Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN \
---known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
---known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
---expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
+--known-validator 9e2RvEzemWs6ZkEhdW2NddSWiFKgJfkw5LWGtgwvPnvw \
+--known-validator 5eiHbh7oTMByatSxoxtgpNfu9hQj8kf1Ltyr83bFsSd9 \
+--known-validator ENCVKduwGMUc3ZfVGZLyuUrwwQiR2YLbsP6y2bitnCV6 \
+--expected-bank-hash 4cyHLxMPCJH4pq9v6eVDFBKKNwrVw8ww78yYUSJNDvjU \
 --only-known-rpc \
+--expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
 --wal-recovery-mode skip_any_corrupted_record \
---limit-ledger-size 50000000 \
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
 --ledger /root/solana/ledger \
---dynamic-port-range 8000-8020 \
---gossip-port 8001 \
+--limit-ledger-size 50000000 \
+--dynamic-port-range 9050-9070 \
+--log /dev/null \
+--full-snapshot-interval-slots 25000 \
+--incremental-snapshot-interval-slots 500 \
+--no-port-check \
 --rpc-port 8899 \
---incremental-snapshot-interval-slots 2500 \
---maximum-local-snapshot-age 5000 \
 --full-rpc-api \
---maximum-full-snapshots-to-retain 1 \
---maximum-incremental-snapshots-to-retain 1 \
---log /dev/null
+--private-rpc
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+[Install]
+WantedBy=multi-user.target
 [Install]
 WantedBy=multi-user.target
 ```
