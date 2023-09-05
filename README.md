@@ -397,6 +397,8 @@ ufw allow 8899/tcp
 ufw allow 8900/tcp
 ufw allow 8000:8020/tcp
 ufw allow 8000:8020/udp
+ufw allow 9000:9020/tcp
+ufw allow 9000:9020/udp
 ufw allow 53
 ```
 hetzner local tr
