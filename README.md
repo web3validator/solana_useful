@@ -181,9 +181,9 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --entrypoint entrypoint2.testnet.solana.com:8001 \
 --entrypoint entrypoint3.testnet.solana.com:8001 \
 --known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
---known-validator 9e2RvEzemWs6ZkEhdW2NddSWiFKgJfkw5LWGtgwvPnvw \
---known-validator 5eiHbh7oTMByatSxoxtgpNfu9hQj8kf1Ltyr83bFsSd9 \
---known-validator ENCVKduwGMUc3ZfVGZLyuUrwwQiR2YLbsP6y2bitnCV6 \
+--known-validator 7XSY3MrYnK8vq693Rju17bbPkCN3Z7KvvfvJx4kdrsSY \
+--known-validator Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN \
+--known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
 --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
 --only-known-rpc \
 --wal-recovery-mode skip_any_corrupted_record \
