@@ -255,7 +255,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --expected-genesis-hash 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d \
 --gossip-port 8001 \
 --rpc-port 8899 \
---log /root/solana/solana.log \
+--log /dev/null \
 --private-rpc \
 --rpc-bind-address 127.0.0.1 \
 --ledger /root/solana/ledger \
