@@ -24,10 +24,8 @@ Start script
 Mainnet  
 
 ```python
-python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger
-sudo su
-systemctl restart solana
-tail -f ~/solana/solana.log
+python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger --num_of_retries 100 && systemctl restart solana
+solana catchup --our-localhost
 ``` 
 `$HOME/solana/ledger/` - path to your `validator-ledger`
 
