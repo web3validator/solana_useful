@@ -37,7 +37,9 @@ solana-install init 1.16.3
 systemctl restart solana 
 solana catchup ~/solana/validator-keypair.json --our-localhost
 ```
-
+```bash
+solana-validator --ledger /root/solana/ledger wait-for-restart-window && systemctl restart solana
+```
 ## halt stop 
 ```
 apt install screen -y
