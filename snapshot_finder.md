@@ -32,10 +32,8 @@ solana catchup --our-localhost
 
 TdS  
 ```python
-python3 snapshot-finder.py --snapshot_path /root/solana/ledger -r http://api.testnet.solana.com
-sudo su
-systemctl restart solana
-tail -f ~/solana/solana.log
+python3 snapshot-finder.py --snapshot_path /root/solana/ledger -r http://api.testnet.solana.com && systemctl restart solana
+solana catchup --our-localhost
 ``` 
 
 ### Run via docker  
