@@ -31,7 +31,7 @@ solana catchup --our-localhost
 
 with min download speed
 
-`python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger --with_private_rpc --num_of_retries 100 --min_download_speed 22 && systemctl restart solana
+`python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger --with_private_rpc --num_of_retries 100 --min_download_speed 16 && systemctl restart solana
 `
 
 
