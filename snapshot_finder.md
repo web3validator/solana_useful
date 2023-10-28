@@ -21,7 +21,7 @@ sudo apt-get update \
 ```
 
 Start script  
-Mainnet  
+### Mainnet  
 
 ```python
 python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger --with_private_rpc --num_of_retries 100 && systemctl restart solana
