@@ -267,12 +267,17 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --snapshot-interval-slots 500 \
 --no-port-check \
 --no-poh-speed-test \
---no-skip-initial-accounts-db-clean \
 --skip-poh-verify
 [Install]
 WantedBy=multi-user.target
 ```
 =============================
+
+
+Add this flag if your disk is so slow
+
+`--no-skip-initial-accounts-db-clean \`
+
 ```bash
 systemctl daemon-reload
 
