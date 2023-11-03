@@ -408,6 +408,15 @@ ufw allow 8000:8020/udp
 
 ufw allow 53
 ```
+denylocal traffic
+```bash
+ufw deny out from any to 10.0.0.0/8
+ufw deny out from any to 172.16.0.0/12
+ufw deny out from any to 192.168.0.0/16
+ufw deny out from any to 100.64.0.0/10
+ufw deny out from any to 198.18.0.0/15
+ufw deny out from any to 169.254.0.0/16
+```
 testnet
 ```bash
 ufw allow 22
