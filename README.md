@@ -53,7 +53,7 @@ chmod +x halt_validator_at_epoch.sh
 
 # Jito Upgrading 
 ```bash
-export TAG=v1.14.16-jito # tag
+export TAG=v1.16.17-jito # tag
 ```
 ```bash
 cd jito-solana
