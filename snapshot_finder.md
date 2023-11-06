@@ -21,23 +21,28 @@ sudo apt-get update \
 ```
 
 Start script  
-Mainnet  
+### Mainnet  
 
 ```python
-python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger
-sudo su
-systemctl restart solana
-tail -f ~/solana/solana.log
+python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger --with_private_rpc --num_of_retries 100 && systemctl restart solana
+solana catchup --our-localhost
 ``` 
 `$HOME/solana/ledger/` - path to your `validator-ledger`
 
+with min download speed
+
+`python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger --with_private_rpc --num_of_retries 100 --min_download_speed 16 && systemctl restart solana
+`
+check status if you need
+
+```bash
+systemctl status solana
+```
 
 TdS  
 ```python
-python3 snapshot-finder.py --snapshot_path /root/solana/ledger -r http://api.testnet.solana.com
-sudo su
-systemctl restart solana
-tail -f ~/solana/solana.log
+python3 snapshot-finder.py --snapshot_path /root/solana/ledger -r http://api.testnet.solana.com && systemctl restart solana
+solana catchup --our-localhost
 ``` 
 
 ### Run via docker  
@@ -49,7 +54,7 @@ sudo docker run -it --rm \
 --user $(id -u):$(id -g) \
 c29r3/solana-snapshot-finder:latest \
 --snapshot_path /solana/snapshot
-```
+```bash
 *`~/solana/validator-ledger` - path to validator-ledger, where snapshots stored*
 
 TdS  

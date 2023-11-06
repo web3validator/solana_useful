@@ -3,7 +3,7 @@ Useful to run solana validator
 
 Check this link https://teletype.in/@in_extremo/solana_useful
 ```bash
-sh -c "$(curl -sSfL https://release.solana.com/v1.14.17/install)"
+sh -c "$(curl -sSfL https://release.solana.com/v1.16.17/install)"
 ```
 # add solana into PATH
 ```bash
@@ -33,13 +33,27 @@ systemctl restart solana
 firstly check when your block >>
 ```bash
 sudo su
-solana-install init 1.14.18
+solana-install init 1.16.3
 systemctl restart solana 
 solana catchup ~/solana/validator-keypair.json --our-localhost
 ```
+```bash
+solana-validator --ledger /root/solana/ledger wait-for-restart-window && systemctl restart solana
+```
+## halt stop 
+```
+apt install screen -y
+screen -S halt
+```
+```
+wget https://raw.githubusercontent.com/web3validator/solana_useful/main/halt_validator_at_epoch.sh
+chmod +x halt_validator_at_epoch.sh
+./halt_validator_at_epoch.sh 508
+```
+
 # Jito Upgrading 
 ```bash
-export TAG=v1.14.16-jito # tag
+export TAG=v1.16.17-jito # tag
 ```
 ```bash
 cd jito-solana
@@ -48,12 +62,7 @@ git checkout tags/$TAG
 git submodule update --init --recursive
 CI_COMMIT=$(git rev-parse HEAD) scripts/cargo-install-all.sh ~/.local/share/solana/install/releases/"$TAG"
 ```
-Check catchup
-
-```bash
-solana catchup --our-localhost
-```
-
+# increase nofile
 ```bash
 sudo bash -c "cat >/etc/sysctl.d/21-solana-validator.conf <<EOF
 # Increase UDP buffer sizes
@@ -61,28 +70,18 @@ net.core.rmem_default = 134217728
 net.core.rmem_max = 134217728
 net.core.wmem_default = 134217728
 net.core.wmem_max = 134217728
-
 # Increase memory mapped files limit
-vm.max_map_count = 1000000
-
+vm.max_map_count = 2048000
 # Increase number of allowed open file descriptors
-fs.nr_open = 1000000
+fs.nr_open = 2048000
 EOF"
-
-sudo sysctl -p /etc/sysctl.d/20-solana-udp-buffers.conf
-
+sysctl -p /etc/sysctl.d/21-solana-validator.conf
 sudo bash -c "cat >/etc/security/limits.d/90-solana-nofiles.conf <<EOF
 # Increase process file descriptor count limit
-* - nofile 1000000
-EOF"
-
-sudo sysctl -p /etc/sysctl.d/20-solana-mmaps.conf
-
-sudo bash -c "cat >/etc/security/limits.d/90-solana-nofiles.conf <<EOF
-# Increase process file descriptor count limit
-* - nofile 1000000
+* - nofile 2048000
 EOF"
 ```
+
 # mitigate the vulnerability
 Fortunately, to mitigate the vulnerability is very easy. You do not need to stop any services or restart the computers. You just need to issue two commands on the node and gateway computers.
 ```bash
@@ -169,7 +168,7 @@ nano /etc/systemd/system/solana.service
 ```
 ```bash
 [Unit]
-Description=Solana Node
+Description=Solana testnet node
 After=network.target syslog.target
 StartLimitIntervalSec=0
 [Service]
@@ -179,33 +178,29 @@ RestartSec=1
 LimitNOFILE=2048000
 Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
+--entrypoint testnet.solana.margus.one:8001 \
 --entrypoint entrypoint.testnet.solana.com:8001 \
 --entrypoint entrypoint2.testnet.solana.com:8001 \
 --entrypoint entrypoint3.testnet.solana.com:8001 \
 --known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
---known-validator dDzy5SR3AXdYWVqbDEkVFdvSPCtS9ihF5kJkHCtXoFs \
+--known-validator 7XSY3MrYnK8vq693Rju17bbPkCN3Z7KvvfvJx4kdrsSY \
 --known-validator Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN \
---known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
 --known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
---only-known-rpc \
 --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
+--only-known-rpc \
 --wal-recovery-mode skip_any_corrupted_record \
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
 --ledger /root/solana/ledger \
---snapshot-compression none \
---full-snapshot-interval-slots 30000 \
---incremental-snapshot-interval-slots 500 \
---maximum-full-snapshots-to-retain 1 \
---maximum-incremental-snapshots-to-retain 2 \
---maximum-local-snapshot-age 1500 \
 --limit-ledger-size 50000000 \
---no-os-network-limits-test \
---dynamic-port-range 8000-8020 \
---log /root/solana/solana.log \
---private-rpc \
---rpc-bind-address 127.0.0.1 \
---rpc-port 8899
+--dynamic-port-range 9050-9070 \
+--log /dev/null \
+--full-snapshot-interval-slots 25000 \
+--incremental-snapshot-interval-slots 500 \
+--no-port-check \
+--rpc-port 8899 \
+--full-rpc-api \
+--private-rpc
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
@@ -262,7 +257,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --expected-genesis-hash 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d \
 --gossip-port 8001 \
 --rpc-port 8899 \
---log /root/solana/solana.log \
+--log /dev/null \
 --private-rpc \
 --rpc-bind-address 127.0.0.1 \
 --ledger /root/solana/ledger \
@@ -277,6 +272,12 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 WantedBy=multi-user.target
 ```
 =============================
+
+
+Add this flag if your disk is so slow
+
+`--no-skip-initial-accounts-db-clean \`
+
 ```bash
 systemctl daemon-reload
 
@@ -318,7 +319,7 @@ solana catchup ~/solana/validator-keypair.json --our-localhost
 ==========
 
 ```bash
-solana validator-info publish "YourName" -n keybaseUsername -w "https://yoursite.com" -d "Blocks must go on"
+solana validator-info publish "web34ever" -w "https://web3validator.info" -i "https://prnt.sc/5ihpwIyeMhjy" -d "Crypto is going mainstream. We help you go upstream" -k validator-keypair.json
 ```
 =
 change vote author withdrawer
@@ -342,20 +343,32 @@ ramdisk
 ###########################
 
 # swap
+```bash
 swapon --show
+```
+=(
 
+```bash
 touch /swap.img
+```
+
 ```bash
 chmod 0600 /swap.img
 ```
 ```bash
 fallocate -l 128G /swap.img && mkswap /swap.img && swapon /swap.img
 ```
+```bash
 swapon --show
+```
+=)
 
+```bash
 echo '/swap.img none swap sw 0 0' >> /etc/fstab
+```
+# Ramdisk
 
-#create swapfile
+create swapfile
 ```bash
 swapoff -a
 dd if=/dev/zero of=/swapfile bs=1G count=128
@@ -368,7 +381,7 @@ nano /etc/fstab
 ```
 ```bash
 /swapfile none swap sw 0 0
-tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size=128G 0 0
+tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size=256G 0 0
 ``` 
 ```bash
 mkdir -p /mnt/ramdisk
@@ -392,9 +405,10 @@ ufw allow 8899/tcp
 ufw allow 8900/tcp
 ufw allow 8000:8020/tcp
 ufw allow 8000:8020/udp
+
 ufw allow 53
 ```
-hetzner local tr
+denylocal traffic
 ```bash
 ufw deny out from any to 10.0.0.0/8
 ufw deny out from any to 172.16.0.0/12
@@ -402,6 +416,17 @@ ufw deny out from any to 192.168.0.0/16
 ufw deny out from any to 100.64.0.0/10
 ufw deny out from any to 198.18.0.0/15
 ufw deny out from any to 169.254.0.0/16
+```
+testnet
+```bash
+ufw allow 22
+ufw allow 8000/tcp
+ufw allow 8899/tcp
+ufw allow 8900/tcp
+ufw allow 9000:9020/tcp
+ufw allow 9000:9020/udp
+ufw allow 9050:9070/tcp
+ufw allow 9050:9070/udp
 ```
 
 ```bash
