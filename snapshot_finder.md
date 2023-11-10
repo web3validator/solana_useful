@@ -9,7 +9,7 @@ systemctl stop solana
   
 Install requirements  
 ```bash
-rm -rf solana-snapshot-finder
+rm -rf solana-snapshot-finder && rm -rf ~/solana/ledger/*
 
 sudo apt-get update \
 && sudo apt-get install python3-venv git -y \
