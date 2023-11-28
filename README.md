@@ -90,7 +90,10 @@ sudo /bin/bash -c 'echo "kernel.unprivileged_userns_clone=0" >> /etc/sysctl.conf
 sudo sysctl -p
 ```
 # install TRIM and performance mode
-
+manual trim
+```bash
+fstrim -va
+```
 ```bash
 systemctl edit fstrim.timer
 ```
@@ -101,6 +104,8 @@ Paste:
 [Timer]
 OnCalendar=daily
 ```
+
+performance mode:
 ```bash
 for i in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do echo performance > $i; done
 ```
