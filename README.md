@@ -48,7 +48,7 @@ screen -S halt
 ```
 wget https://raw.githubusercontent.com/web3validator/solana_useful/main/halt_validator_at_epoch.sh
 chmod +x halt_validator_at_epoch.sh
-./halt_validator_at_epoch.sh 508
+./halt_validator_at_epoch.sh 563
 ```
 
 # Jito Upgrading 
