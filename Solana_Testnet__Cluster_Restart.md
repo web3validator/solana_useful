@@ -1,19 +1,20 @@
 
+### Instruction is written for an appendics
 
+ Install new version
 ```
 solana-install init v1.16.20
 ```
+stop service, delete ledger
 ```bash
 systemctl stop solana
-```
-```bash
 rm -rf /root/solana/ledger/*
 ```
-
+download appropriate snapshot
 ```bash
 wget --trust-server-names http://139.178.68.207:80/snapshot.tar.bz2 -P /root/solana/ledger
 ```
-
+change service parameters
 ```bash
 rm /etc/systemd/system/solana.service
 nano /etc/systemd/system/solana.service
