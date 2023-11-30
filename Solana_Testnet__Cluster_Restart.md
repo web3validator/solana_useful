@@ -66,7 +66,7 @@ WantedBy=multi-user.target
 systemctl daemon-reload
 systemctl restart solana
 ```
-## and check the log
+## check the log and WAIT 2-3 min
 ```bash
 tail -f ~/solana/solana.log | grep 'Waiting for'
 ```
