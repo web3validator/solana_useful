@@ -60,11 +60,14 @@ ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
 WantedBy=multi-user.target
 ```
-#Start and check log
+#restart solana service
 
 ```bash
 systemctl daemon-reload
 systemctl restart solana
+```
+## and check the log
+```bash
 tail -f ~/solana/solana.log | grep 'Waiting for'
 ```
 
