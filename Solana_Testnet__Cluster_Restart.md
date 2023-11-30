@@ -36,7 +36,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --entrypoint entrypoint2.testnet.solana.com:8001 \
 --entrypoint entrypoint3.testnet.solana.com:8001 \
 --known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
---expected-shred-version 5106 \
 --no-snapshot-fetch \
 --wait-for-supermajority 237692256 \
 --expected-shred-version 5106 \
