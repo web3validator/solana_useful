@@ -1,10 +1,10 @@
 
 
 ```
-solana-install init v1.14.23
+solana-install init v1.16.20
 ```
 ```bash
-wget --content-disposition http://139.178.68.207:8899/snapshot.tar.bz2 -P /root/solana/ledger
+wget --trust-server-names http://139.178.68.207:80/snapshot.tar.bz2 -P /root/solana/ledger
 ```
 
 ```bash
@@ -28,22 +28,20 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --entrypoint entrypoint2.testnet.solana.com:8001 \
 --entrypoint entrypoint3.testnet.solana.com:8001 \
 --known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
---known-validator 9e2RvEzemWs6ZkEhdW2NddSWiFKgJfkw5LWGtgwvPnvw \
---known-validator 5eiHbh7oTMByatSxoxtgpNfu9hQj8kf1Ltyr83bFsSd9 \
---known-validator ENCVKduwGMUc3ZfVGZLyuUrwwQiR2YLbsP6y2bitnCV6 \
---wait-for-supermajority 213932256 \
---expected-shred-version 61807 \
---expected-bank-hash 4cyHLxMPCJH4pq9v6eVDFBKKNwrVw8ww78yYUSJNDvjU \
+--expected-shred-version 5106 \
 --no-snapshot-fetch \
---only-known-rpc \
+--wait-for-supermajority 237692256 \
+--expected-shred-version 5106 \
+--expected-bank-hash 5F6SxymLj1v88JcupVgSHwiCBvtsu8ekA82E1ntaCPqh \
 --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
+--only-known-rpc \
 --wal-recovery-mode skip_any_corrupted_record \
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
 --ledger /root/solana/ledger \
 --limit-ledger-size 50000000 \
 --dynamic-port-range 9050-9070 \
---log /root/solana/solana.log \
+--log /dev/null \
 --full-snapshot-interval-slots 25000 \
 --incremental-snapshot-interval-slots 500 \
 --no-port-check \
