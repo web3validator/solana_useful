@@ -4,6 +4,10 @@
 solana-install init v1.16.20
 ```
 ```bash
+rm -rf /root/solana/ledger/*
+```
+
+```bash
 wget --trust-server-names http://139.178.68.207:80/snapshot.tar.bz2 -P /root/solana/ledger
 ```
 
