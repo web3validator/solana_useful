@@ -67,3 +67,9 @@ systemctl daemon-reload
 systemctl restart solana
 tail -f ~/solana/solana.log | grep 'Waiting for'
 ```
+
+If you see this logs output after a while
+```bash
+[2023-11-30T01:56:08.057158618Z INFO  solana_core::validator] Waiting for 80% of activated stake at slot 237692256 to be in gossip...
+```
+you are good to go =)
