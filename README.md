@@ -35,7 +35,7 @@ firstly check when your block >>
 sudo su
 solana-install init 1.16.3
 systemctl restart solana 
-solana catchup ~/solana/validator-keypair.json --our-localhost
+solana catchup --our-localhost
 ```
 ```bash
 solana-validator --ledger /root/solana/ledger wait-for-restart-window && systemctl restart solana
