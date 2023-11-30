@@ -8,7 +8,7 @@ solana-install init v1.16.20
 stop service, delete ledger
 ```bash
 systemctl stop solana
-rm -rf /root/solana/ledger/*
+rm -rf $HOME/solana/ledger/*
 ```
 download appropriate snapshot
 ```bash
