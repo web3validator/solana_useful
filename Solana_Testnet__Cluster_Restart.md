@@ -12,7 +12,7 @@ rm -rf /root/solana/ledger/*
 ```
 download appropriate snapshot
 ```bash
-wget --trust-server-names http://testnet.solana.margus.one/snapshot.tar.bz2 -P /root/solana/ledger/
+wget --trust-server-names http://testnet.solana.margus.one/snapshot.tar.bz2 -P $HOME/solana/ledger/
 ```
 change service parameters
 ```bash
