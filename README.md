@@ -53,6 +53,9 @@ chmod +x halt_validator_at_epoch.sh
 
 # Jito Upgrading 
 ```bash
+git clone https://github.com/jito-foundation/jito-solana.git
+```
+```bash
 export TAG=v1.16.17-jito # tag
 ```
 ```bash
