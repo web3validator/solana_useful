@@ -4,6 +4,9 @@
 solana-install init v1.16.20
 ```
 ```bash
+systemctl stop solana
+```
+```bash
 rm -rf /root/solana/ledger/*
 ```
 
