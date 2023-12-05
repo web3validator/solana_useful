@@ -97,6 +97,7 @@ manual trim
 ```bash
 fstrim -va
 ```
+service
 ```bash
 systemctl edit fstrim.timer
 ```
