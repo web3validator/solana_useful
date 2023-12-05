@@ -37,6 +37,7 @@ solana-install init 1.16.3
 systemctl restart solana 
 solana catchup --our-localhost
 ```
+fast catchup after restart
 ```bash
 solana-validator --ledger /root/solana/ledger wait-for-restart-window && systemctl restart solana
 ```
