@@ -40,16 +40,6 @@ fast catchup after restart
 ```bash
 solana-validator --ledger /root/solana/ledger wait-for-restart-window && systemctl restart solana
 ```
-## halt stop 
-```
-apt install screen -y
-screen -S halt
-```
-```
-wget https://raw.githubusercontent.com/web3validator/solana_useful/main/halt_validator_at_epoch.sh
-chmod +x halt_validator_at_epoch.sh
-./halt_validator_at_epoch.sh 563
-```
 
 # Jito Upgrading 
 ```bash
