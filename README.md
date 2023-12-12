@@ -46,7 +46,7 @@ solana-validator --ledger /root/solana/ledger wait-for-restart-window && systemc
 git clone https://github.com/jito-foundation/jito-solana.git
 ```
 ```bash
-export TAG=v1.16.21-jito # tag
+export TAG=v1.16.23-jito # tag
 ```
 ```bash
 cd jito-solana
