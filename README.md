@@ -405,7 +405,6 @@ ufw allow 8900/tcp
 ufw allow 8000:8020/tcp
 ufw allow 8000:8020/udp
 
-ufw allow 53
 ufw enable
 ```
 denylocal traffic
