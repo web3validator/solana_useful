@@ -7,8 +7,6 @@ sh -c "$(curl -sSfL https://release.solana.com/v1.17.6/install)"
 ```
 # add solana into PATH
 ```bash
-sudo su
-
 echo "export PATH="/root/.local/share/solana/install/active_release/bin:$PATH"" >> ~/.bashrc
 
 source ~/.bashrc
