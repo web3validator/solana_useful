@@ -40,9 +40,15 @@ solana-validator --ledger /root/solana/ledger wait-for-restart-window && systemc
 ```
 
 # Jito Upgrading 
+download if you need
 ```bash
 git clone https://github.com/jito-foundation/jito-solana.git
 ```
+change path to the version in your service file
+```bash
+nano /etc/systemd/system/solana.service
+```
+
 ```bash
 export TAG=v1.16.23-jito # tag
 ```
