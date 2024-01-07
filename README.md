@@ -53,6 +53,11 @@ git checkout tags/$TAG
 git submodule update --init --recursive
 CI_COMMIT=$(git rev-parse HEAD) scripts/cargo-install-all.sh ~/.local/share/solana/install/releases/"$TAG"
 ```
+fast catchup after restart
+```bash
+solana-validator --ledger /mnt/data/solana/ledger wait-for-restart-window && systemctl restart solana
+```
+
 # increase nofile
 ```bash
 sudo bash -c "cat >/etc/sysctl.d/21-solana-validator.conf <<EOF
