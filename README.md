@@ -40,7 +40,7 @@ solana-validator --ledger /root/solana/ledger wait-for-restart-window && systemc
 ```
 or
 ```bash
-solana-validator --ledger /root/solana/ledger exit && systemctl daemon-reload && systemctl restart solana
+solana-validator --ledger /mnt/data/solana/ledger exit && systemctl daemon-reload && systemctl restart solana
 ```
 # Jito Upgrading 
 download if you need
