@@ -38,7 +38,10 @@ fast catchup after restart
 ```bash
 solana-validator --ledger /root/solana/ledger wait-for-restart-window && systemctl restart solana
 ```
-
+or
+```bash
+solana-validator --ledger /root/solana/ledger exit && systemctl daemon-reload && systemctl restart solana
+```
 # Jito Upgrading 
 download if you need
 ```bash
