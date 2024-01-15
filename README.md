@@ -47,11 +47,6 @@ download if you need
 ```bash
 git clone https://github.com/jito-foundation/jito-solana.git
 ```
-change path to the version in your service file
-```bash
-nano /etc/systemd/system/solana.service
-```
-
 ```bash
 export TAG=v1.17.16-jito # tag
 ```
@@ -61,6 +56,10 @@ git pull
 git checkout tags/$TAG
 git submodule update --init --recursive
 CI_COMMIT=$(git rev-parse HEAD) scripts/cargo-install-all.sh ~/.local/share/solana/install/releases/"$TAG"
+```
+change path to the version in your service file
+```bash
+nano /etc/systemd/system/solana.service
 ```
 fast catchup after restart
 ```bash
