@@ -53,7 +53,7 @@ nano /etc/systemd/system/solana.service
 ```
 
 ```bash
-export TAG=v1.16.26-jito # tag
+export TAG=v1.17.16-jito # tag
 ```
 ```bash
 cd jito-solana
