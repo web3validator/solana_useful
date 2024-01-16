@@ -43,6 +43,18 @@ or
 solana-validator --ledger /mnt/data/solana/ledger exit && systemctl daemon-reload && systemctl restart solana
 ```
 # Jito Upgrading 
+install rust
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+install some dependencies
+```bash
+sudo apt-get -y install libssl-dev libudev-dev pkg-config zlib1g-dev llvm clang make
+```
+install protobuf-compiler 
+```bash
+sudo apt install protobuf-compiler
+```
 download if you need
 ```bash
 git clone https://github.com/jito-foundation/jito-solana.git
