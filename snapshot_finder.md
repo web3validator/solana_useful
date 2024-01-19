@@ -24,14 +24,14 @@ Start script
 ### Mainnet  
 
 ```python
-python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger --with_private_rpc --num_of_retries 100 && systemctl restart solana
-solana catchup --our-localhost
+python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger --with_private_rpc --num_of_retries 100 && systemctl daemon-reload && systemctl restart solana
 ``` 
 `$HOME/solana/ledger/` - path to your `validator-ledger`
 
 with min download speed
 
-`python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger --with_private_rpc --num_of_retries 100 --min_download_speed 16 && systemctl restart solana
+`python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger --with_private_rpc --num_of_retries 100 --min_download_speed 16 && systemctl daemon-reload && systemctl restart solana
+
 `
 check status if you need
 
@@ -41,8 +41,8 @@ systemctl status solana
 
 TdS  
 ```python
-python3 snapshot-finder.py --snapshot_path /root/solana/ledger -r http://api.testnet.solana.com && systemctl restart solana
-solana catchup --our-localhost
+python3 snapshot-finder.py --snapshot_path $HOME/solana/ledger -r http://api.testnet.solana.com && systemctl daemon-reload && systemctl restart solana
+
 ``` 
 
 ### Run via docker  
