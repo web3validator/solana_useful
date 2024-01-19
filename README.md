@@ -370,14 +370,14 @@ swapon --show
 =(
 
 ```bash
-touch /swap.img
+touch /mnt/data2/swap.img
 ```
 
 ```bash
-chmod 0600 /swap.img
+chmod 0600 /mnt/data2/swap.img
 ```
 ```bash
-fallocate -l 128G /swap.img && mkswap /swap.img && swapon /swap.img
+fallocate -l 128G /mnt/data2/swap.img && mkswap /mnt/data2/swap.img && swapon /mnt/data2/swap.img
 ```
 ```bash
 swapon --show
@@ -385,7 +385,7 @@ swapon --show
 =)
 
 ```bash
-echo '/swap.img none swap sw 0 0' >> /etc/fstab
+echo '/mnt/data2/swap.img none swap sw 0 0' >> /etc/fstab
 ```
 # Ramdisk
 
