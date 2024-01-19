@@ -377,7 +377,7 @@ touch /mnt/data2/swap.img
 chmod 0600 /mnt/data2/swap.img
 ```
 ```bash
-fallocate -l 128G /mnt/data2/swap.img && mkswap /mnt/data2/swap.img && swapon /mnt/data2/swap.img
+fallocate -l 256G /mnt/data2/swap.img && mkswap /mnt/data2/swap.img && swapon /mnt/data2/swap.img
 ```
 ```bash
 swapon --show
