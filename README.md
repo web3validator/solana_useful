@@ -3,7 +3,7 @@ Useful to run solana validator
 
 Check this link https://teletype.in/@in_extremo/solana_useful
 ```bash
-sh -c "$(curl -sSfL https://release.solana.com/v1.17.16/install)"
+sh -c "$(curl -sSfL https://release.solana.com/v1.17.17/install)"
 ```
 # add solana into PATH
 ```bash
