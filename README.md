@@ -60,7 +60,7 @@ download if you need
 git clone https://github.com/jito-foundation/jito-solana.git
 ```
 ```bash
-export TAG=v1.17.17-jito # tag
+export TAG=v1.17.18-jito # tag
 ```
 ```bash
 cd jito-solana
