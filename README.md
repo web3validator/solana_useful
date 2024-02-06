@@ -31,7 +31,7 @@ systemctl restart solana
 firstly check when your block >>
 ```bash
 sudo su
-solana-install init 1.17.18
+solana-install init 1.17.20
 solana-validator --ledger /root/solana/ledger wait-for-restart-window && systemctl restart solana
 ```
 fast catchup after restart
@@ -60,7 +60,7 @@ download if you need
 git clone https://github.com/jito-foundation/jito-solana.git
 ```
 ```bash
-export TAG=v1.17.18-jito # tag
+export TAG=v1.17.20-jito # tag
 ```
 ```bash
 cd jito-solana
