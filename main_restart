@@ -3,39 +3,30 @@
 apt install screen -y
 screen -S halt
 ```
-```
-sudo su
-screen -S halt
-wget https://raw.githubusercontent.com/web3validator/solana_useful/main/halt_validator_at_epoch.sh
-chmod +x halt_validator_at_epoch.sh
-./halt_validator_at_epoch.sh 579
-```
 
 ### Instruction is written for an appendics
 
  Install new version
 ```
-solana-install init v1.16.24
+solana-install init v1.17.20
 ```
 stop service, delete ledger
 ```bash
 systemctl stop solana
-rm -rf $HOME/solana/ledger/*
+rm -rf /mnt/data2/solana/snapshots/snapshot-24646*
 ```
 download appropriate snapshot
 ```bash
-wget --trust-server-names http://testnet.solana.margus.one/snapshot.tar.bz2 -P $HOME/solana/ledger/
+wget --trust-server-names https://storage.googleapis.com/jito-mainnet/snapshot-246464040-9kmqknr1D8pQXn92dWMDWvfZ9nwzgxRQ6JnbUrG3KN4F.tar.zst -P /mnt/data2/solana/snapshots/
 ```
 change service parameters
 ```bash
 nano /etc/systemd/system/solana.service
 ```
 ```
---known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
---expected-shred-version 14676 \
---expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
---wait-for-supermajority 244604256 \
---expected-bank-hash 2ZHZpzSpBhkbfqsENGybfLbXSZ2hZiTq79qHCM4TWBpi \
+ --wait-for-supermajority 246464040 \
+ --expected-shred-version 50093 \
+ --expected-bank-hash 2QEvYhBgeWPJbC84fMTTK9NgntqiUAWiBEBf21rtTmng \
 ```
 #restart solana service
 
