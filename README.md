@@ -47,6 +47,10 @@ or
 solana-validator --ledger /mnt/data/solana/ledger exit && systemctl daemon-reload && systemctl restart solana
 ```
 # Jito Upgrading 
+
+### INSTALATTION 
+
+(you don't need this one if you wanna just upgrade)
 install rust
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
