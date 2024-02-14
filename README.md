@@ -7,7 +7,7 @@ Useful to run solana validator
 
 Check this link https://teletype.in/@in_extremo/solana_useful
 ```bash
-sh -c "$(curl -sSfL https://release.solana.com/v1.17.17/install)"
+sh -c "$(curl -sSfL https://release.solana.com/v1.17.22/install)"
 ```
 # add solana into PATH
 ```bash
@@ -35,7 +35,7 @@ systemctl restart solana
 firstly check when your block >>
 ```bash
 sudo su
-solana-install init 1.17.20
+solana-install init 1.17.22
 solana-validator --ledger /root/solana/ledger wait-for-restart-window && systemctl restart solana
 ```
 fast catchup after restart
@@ -64,7 +64,7 @@ download if you need
 git clone https://github.com/jito-foundation/jito-solana.git
 ```
 ```bash
-export TAG=v1.17.21-jito # tag
+export TAG=v1.17.22-jito # tag
 ```
 ```bash
 cd jito-solana
