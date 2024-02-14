@@ -1,6 +1,8 @@
 # solana_useful
 Useful to run solana validator
 
+[Jito Upgrading](https://github.com/web3validator/solana_useful/blob/main/README.md#jito-upgrading)
+
 Check this link https://teletype.in/@in_extremo/solana_useful
 ```bash
 sh -c "$(curl -sSfL https://release.solana.com/v1.17.17/install)"
