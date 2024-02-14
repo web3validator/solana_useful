@@ -2,6 +2,7 @@
 Useful to run solana validator
 
 [Jito Upgrading](https://github.com/web3validator/solana_useful/blob/main/README.md#jito-upgrading)
+
 [Mainnet service](https://github.com/web3validator/solana_useful/blob/main/README.md#mainnet-service)
 Check this link https://teletype.in/@in_extremo/solana_useful
 ```bash
