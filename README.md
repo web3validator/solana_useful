@@ -69,10 +69,15 @@ git checkout tags/$TAG
 git submodule update --init --recursive
 CI_COMMIT=$(git rev-parse HEAD) scripts/cargo-install-all.sh ~/.local/share/solana/install/releases/"$TAG"
 ```
-delete old active_release and substitu to new_one
+delete old active_release and substite to the new_one
 
 ```bash
 cd ~/.local/share/solana/install/releases && rm -rf active_release && mv $TAG active_release
+```
+check that version is correct
+
+```bash
+/root/.local/share/solana/install/releases/active_release/bin/solana -V
 ```
 fast catchup after restart
 ```bash
