@@ -91,7 +91,7 @@ check that version is correct
 ```
 fast catchup after restart
 ```bash
-solana-validator --ledger /mnt/data/solana/ledger wait-for-restart-window && systemctl daemon-reload && systemctl restart solana
+solana-validator --ledger /mnt/data/solana/ledger exit && systemctl daemon-reload && systemctl restart solana
 ```
 
 # increase nofile
