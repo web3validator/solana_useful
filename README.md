@@ -94,6 +94,16 @@ fast catchup after restart
 solana-validator --ledger /mnt/data/solana/ledger exit && systemctl daemon-reload && systemctl restart solana
 ```
 
+check logs
+```bash
+tail -f ~/solana/solana.log
+```
+
+check catchup
+```bash
+solana catchup --our-localhost
+```
+
 # increase nofile
 ```bash
 sudo bash -c "cat >/etc/sysctl.d/21-solana-validator.conf <<EOF
