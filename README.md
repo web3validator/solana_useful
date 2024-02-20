@@ -32,7 +32,6 @@ systemctl restart solana
 # Easy UPDATE
 firstly check when your block >>
 ```bash
-sudo su
 solana-install init 1.17.22
 solana-validator --ledger /root/solana/ledger wait-for-restart-window && systemctl restart solana
 ```
