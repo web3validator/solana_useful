@@ -20,9 +20,9 @@ change service parameters
 nano /etc/systemd/system/solana.service
 ```
 ```
- --wait-for-supermajority 254108257 \
- --expected-shred-version 35459 \
- --expected-bank-hash 4rWEDhTyQVgTw6sPoCthXmUNmjeiwsdKQ5ZNvpEi3uvk \
+--wait-for-supermajority 254108257 \
+--expected-shred-version 35459 \
+--expected-bank-hash 4rWEDhTyQVgTw6sPoCthXmUNmjeiwsdKQ5ZNvpEi3uvk \
 ```
 #restart solana service
 
