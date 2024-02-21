@@ -31,11 +31,9 @@ change service parameters
 nano /etc/systemd/system/solana.service
 ```
 ```
---known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
---expected-shred-version 14676 \
---expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
---wait-for-supermajority 244604256 \
---expected-bank-hash 2ZHZpzSpBhkbfqsENGybfLbXSZ2hZiTq79qHCM4TWBpi \
+ --wait-for-supermajority 254108257 \
+ --expected-shred-version 35459 \
+ --expected-bank-hash 4rWEDhTyQVgTw6sPoCthXmUNmjeiwsdKQ5ZNvpEi3uvk \
 ```
 #restart solana service
 
