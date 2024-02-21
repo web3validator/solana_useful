@@ -17,6 +17,7 @@ wget --trust-server-names http://testnet.solana.margus.one/snapshot.tar.bz2 -P $
 ```
 change service parameters
 ```bash
+rm /etc/systemd/system/solana.service
 nano /etc/systemd/system/solana.service
 ```
 ```
