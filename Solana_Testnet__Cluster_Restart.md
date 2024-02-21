@@ -45,7 +45,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --wal-recovery-mode skip_any_corrupted_record \
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
---ledger /root/solana/ledger \
+--ledger /mnt/data/solana/ledger \
 --limit-ledger-size 50000000 \
 --dynamic-port-range 9050-9070 \
 --log /root/solana/solana.log \
