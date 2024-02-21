@@ -57,7 +57,8 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --private-rpc \
 --wait-for-supermajority 254108257 \
 --expected-shred-version 35459 \
---expected-bank-hash 4rWEDhTyQVgTw6sPoCthXmUNmjeiwsdKQ5ZNvpEi3uvk 
+--expected-bank-hash 4rWEDhTyQVgTw6sPoCthXmUNmjeiwsdKQ5ZNvpEi3uvk \
+--no-snapshot-fetch
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
