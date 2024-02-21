@@ -15,12 +15,12 @@ chmod +x halt_validator_at_epoch.sh
 
  Install new version
 ```
-solana-install init v1.16.24
+solana-install init v1.18.2
 ```
 stop service, delete ledger
 ```bash
 systemctl stop solana
-rm -rf $HOME/solana/ledger/*
+rm -rf $HOME/solana/ledger/snapshot*
 ```
 download appropriate snapshot
 ```bash
