@@ -9,11 +9,12 @@ solana-install init v1.18.2
 stop service, delete ledger
 ```bash
 systemctl stop solana
-rm -rf $HOME/solana/ledger/snapshot*
+rm -rf $HOME/solana/ledger/snapshot-*
+rm -rf $HOME/solana/ledger/incremental-*
 ```
 download appropriate snapshot
 ```bash
-wget --trust-server-names http://testnet.solana.margus.one/snapshot.tar.bz2 -P $HOME/solana/ledger/
+wget --trust-server-names -P $HOME/ttt http://testnet.solana.margus.one/snapshot.tar.bz2 -P $HOME/solana/ledger/
 ```
 change service parameters
 ```bash
