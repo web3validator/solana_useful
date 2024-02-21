@@ -9,12 +9,12 @@ solana-install init v1.18.2
 stop service, delete ledger
 ```bash
 systemctl stop solana
-rm -rf $HOME/solana/ledger/snapshot-*
-rm -rf $HOME/solana/ledger/incremental-*
+rm -rf /mnt/data/solana/ledger/snapshot-*
+rm -rf /mnt/data/solana/ledger/incremental-*
 ```
 download appropriate snapshot
 ```bash
-wget --trust-server-names -P $HOME/ttt http://testnet.solana.margus.one/snapshot.tar.bz2 -P $HOME/solana/ledger/
+wget --trust-server-names -P $HOME/ttt http://testnet.solana.margus.one/snapshot.tar.bz2 -P /mnt/data/solana/ledger/
 ```
 change service parameters
 ```bash
@@ -45,7 +45,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 --wal-recovery-mode skip_any_corrupted_record \
 --identity /root/solana/validator-keypair.json \
 --vote-account /root/solana/vote-account-keypair.json \
---ledger /root/solana/ledger \
+--ledger /mnt/data/solana/ledger \
 --limit-ledger-size 50000000 \
 --dynamic-port-range 9050-9070 \
 --log /root/solana/solana.log \
