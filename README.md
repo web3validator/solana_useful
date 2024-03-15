@@ -67,7 +67,7 @@ git clone https://github.com/jito-foundation/jito-solana.git
 ```
 # Jito Upgrading 
 ```bash
-export TAG=v1.17.22-jito # tag
+export TAG=v1.17.25-jito # tag
 ```
 ```bash
 cd jito-solana
