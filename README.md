@@ -7,7 +7,7 @@ Useful to run solana validator
 
 Check this link https://teletype.in/@in_extremo/solana_useful
 ```bash
-sh -c "$(curl -sSfL https://release.solana.com/v1.17.22/install)"
+sh -c "$(curl -sSfL https://release.solana.com/v1.18.8/install)"
 ```
 # add solana into PATH
 ```bash
@@ -67,7 +67,7 @@ git clone https://github.com/jito-foundation/jito-solana.git
 ```
 # Jito Upgrading 
 ```bash
-export TAG=v1.17.27-jito # tag
+export TAG=v1.17.28-jito # tag
 ```
 ```bash
 cd jito-solana
