@@ -290,8 +290,9 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 [Install]
 WantedBy=multi-user.target
 ```
-=============================
-This service gonna be old one but basic, feel free to find other keys that you need by `solana -h`
+####
+This service may be old but basic. Feel free to find any other keys you need by using `solana -h`
+####
 ```bash
 systemctl daemon-reload
 
