@@ -70,7 +70,7 @@ git clone https://github.com/jito-foundation/jito-solana.git
 export TAG=v1.17.28-jito # tag
 ```
 ```bash
-cd jito-solana
+cd ~/jito-solana
 git pull
 git checkout tags/$TAG
 git submodule update --init --recursive
