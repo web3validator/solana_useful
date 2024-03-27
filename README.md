@@ -3,7 +3,6 @@ Useful to run solana validator
 
 [Jito Upgrading](https://github.com/web3validator/solana_useful/blob/main/README.md#jito-upgrading)
 
-[Mainnet service](https://github.com/web3validator/solana_useful/blob/main/README.md#mainnet-service)
 
 Check this link https://teletype.in/@in_extremo/solana_useful
 ```bash
@@ -292,12 +291,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 WantedBy=multi-user.target
 ```
 =============================
-
-
-Add this flag if your disk is so slow
-
-`--no-skip-initial-accounts-db-clean \`
-
+This service gonna be old one but basic, feel free to find other keys that you need by `solana -h`
 ```bash
 systemctl daemon-reload
 
